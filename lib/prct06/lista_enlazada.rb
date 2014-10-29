@@ -13,7 +13,8 @@ module Prct06
       array.unshift << args
     end 
     
-    
+    def pop()
+      array.shift >> args
   end
 end
     
