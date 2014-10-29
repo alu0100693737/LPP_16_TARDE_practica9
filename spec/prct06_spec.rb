@@ -6,25 +6,69 @@ describe Prct06 do
 		describe Prct06::Lista_enlazada do
 
 			before :each do
-				Nodo = Struct.new(:valor, :siguiente)
-				@preg1=Preguntas::EleccionSimple.new(
-					:pregunta => "salida de : 
-					class Xyz \n def pots\n
-					@nice\n end\nend\n",:Op_correcta => 'nil',
-				 	:Op_incorrecta => ['#<Xyz:0x00000002bf0ed0>',0, "ninguna de las anteriores" ])
-
-				@nodo1=Nodo.new(@preg1, nil)
-				@lista_enlazada=Prct06::Lista_enlazada.new(:cabeza=>nil,:ultelem =>nil)
-				@lista_enlazada.push(@nodo1)	
-			end
-			context "Comprobacion de existencia de metodos" do
-				it "existe un metodo pop" do
-					expect(@lista_enlzada).to respond_to :pop
-				end
- 				it "existe un metodo push" do
-					expect(@lista_enlazada).to respond_to :push
-				end
-			end
+				nodo = Struct.new(:valor, :siguiente)
+# 				@preg1=Preguntas::EleccionSimple.new(
+# 					:pregunta => "salida de : 
+# 					class Xyz \n def pots\n
+# 					@nice\n end\nend\n",:Op_correcta => 'nil',
+# 				 	:Op_incorrecta => ['#<Xyz:0x00000002bf0ed0>',0, "ninguna de las anteriores" ])
+# 
+# 				@nodo1=nodo.new(@preg1, nil)
+ 				@lista_enlazada=Prct06::Lista_enlazada.new(2,2)
+# 				
+# 				@preg2=Preguntas::EleccionSimple.new(
+# 				      :pregunta => "salida de :
+# 				      hash_raro ={ \n
+# 				      [1, 2, 3] => Object.new(), \n
+# 				      Hash.new => :toto
+# 				      }", :Op_correcta => "Cierto", 
+# 				      :Op_incorrecta => "Falso" )
+# 				
+# 				@nodo2=nodo.new(@preg2, nil)
+# 				
+# 				@preg3=Preguntas::EleccionSimple.new(
+# 				      :pregunta => "salida de :
+# 				      class Array \n 
+# 				      def say_hi \n
+# 				      HEY! 
+# 				      end
+# 				      end \n
+# 				      p[1,, bob].say_hi", 
+# 				      :Op_correcta => "Ninguna de las anteriores",
+# 				      :Op_incorrecta => ['1', 'bob', 'HEY!'])
+# 				      
+# 				@nodo3=nodo.new(@preg3, nil)
+# 				
+# 				@preg4=Preguntas::EleccionSimple.new(
+# 				      :pregunta => "salida de :
+# 				      class Objeto \n
+# 				      end", :Op_correcta => "Una instancia de la clase Class",
+# 				      :Op_incorrecta => ['una constante', 'un objeto', 'ninguna de las anteriores'])
+# 				
+# 				@nodo4=nodo.new(@preg4, nil)
+# 				
+# 				@preg5=Preguntas::EleccionSimple.new(
+# 				      :pregunta => "Es apropiado que una clase tablero herede de la clase juego? ",
+# 				      :Op_correcta => "Falso", :Op_incorrecta => ['Cierto'])
+# 				
+# 				@nodo5=nodo.new(@preg5, nil)
+# 				
+# 				
+# 				@lista_enlazada.push(@nodo1)
+# 				@lista_enlazada.push(@nodo2)
+# 				@lista_enlazada.push(@nodo3)
+# 				@lista_enlazada.push(@nodo4)
+# 				@lista_enlazada.push(@nodo5)
+# 				
+ 			end
+ 			context "Comprobacion de existencia de metodos" do
+ 				it "existe un metodo pop" do
+ 					expect(@lista_enlazada).to respond_to :pop
+ 				end
+  				it "existe un metodo push" do
+ 					expect(@lista_enlazada).to respond_to :to_tex
+ 				end
+ 			end
 
 
 

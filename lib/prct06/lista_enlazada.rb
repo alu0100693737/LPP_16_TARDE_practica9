@@ -5,9 +5,9 @@ module Prct06
     
     # create a Struct with :value and :next
     
-    def initialize(cabeza = nil, ultelem = nil)
-   	@cabeza=cabeza
-	@ultelem=ultelem
+    def initialize(a=nil, b=nil)
+   	@cabeza=a
+	@ultelem=b
     end
     
     def push(args)
@@ -18,6 +18,10 @@ module Prct06
     def pop()
       array.shift >> args
     end
+    
+     def to_tex
+    end
+    
   end
 end
     
