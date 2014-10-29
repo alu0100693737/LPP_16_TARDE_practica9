@@ -1,24 +1,22 @@
 # Prct06
 
-TODO: Write a gem description
+Propiedad de:
 
-## Installation
+Iván García Campos
+Fabian Díaz Lorenzo
 
-Add this line to your application's Gemfile:
+Practica 6. Programacion orientada a objetos.
 
-    gem 'prct06'
+El objetivo de la practica es la implementacion de una clase Ruby para
+representar y gestionar listas enlazadas.
+Para la declaración se utilizará un Struct
 
-And then execute:
+Terminado los test que comprueben el funcionamiento de dicha clase se trabajara
+sobre la practica anterior para resolver las preguntas del apartado dos.
 
-    $ bundle
 
-Or install it yourself as:
 
-    $ gem install prct06
 
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
