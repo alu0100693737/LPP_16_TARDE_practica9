@@ -1,6 +1,0 @@
-require 'spec_helper'
-require 'prct06'
-
-describe prct06 do
-  it 'requires additional testing'
-end
