@@ -16,6 +16,14 @@ describe Prct06 do
 				@lista_enlazada=Prct06::Lista_enlazada.new(:cabeza=>nil,:ultelem =>nil)
 				@lista_enlazada.push(@nodo1)	
 			end
+			context "Comprobacion de existencia de metodos" do
+				it "existe un metodo pop" do
+					expect(@lista_enlzada).to respond_to :pop
+				end
+ 				it "existe un metodo push" do
+					expect(@lista_enlazada).to respond_to :push
+				end
+			end
 
 
 
