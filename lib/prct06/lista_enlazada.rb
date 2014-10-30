@@ -27,6 +27,7 @@ module Prct06
 	destruir.valor
       else
 	puts 'No habia nada en la lista enlazada'
+	return nil
       end
     end
     

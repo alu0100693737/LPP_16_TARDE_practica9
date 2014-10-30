@@ -81,7 +81,7 @@ describe Prct06 do
 			  #it " se extrae el primer elemento de la lista" 
 			  
 			  it "Debe existir una lista con su cabeza"do
-			     expect(@cabeza.valor)== "2"
+			     expect(@lista_enlazada2.cabeza.valor)== "2"
 			  end
 			end
 
