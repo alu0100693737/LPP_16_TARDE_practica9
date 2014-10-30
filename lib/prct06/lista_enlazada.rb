@@ -1,7 +1,7 @@
 module Prct06
   class Lista_enlazada
     
-    attr_accessor :cabeza, :ultelem
+    attr_accessor :cabeza, :ultelem,:valor, :siguiente
     
     # create a Struct with :value and :next
     nodo = Struct.new(:valor, :siguiente)

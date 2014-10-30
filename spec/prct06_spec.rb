@@ -81,8 +81,7 @@ describe Prct06 do
 			  #it " se extrae el primer elemento de la lista" 
 			  
 			  it "Debe existir una lista con su cabeza"do
-			    a=@nodo6.valor
-			  expect(@cabeza.valor)== a
+			     expect(@cabeza.valor)== "2"
 			  end
 			end
 
