@@ -7,6 +7,7 @@ describe Prct06 do
 
 			before :each do
 				nodo = Struct.new(:valor, :siguiente)
+				@lista_enlazada2=Prct06::Lista_enlazada.new
  				@preg1=Preguntas::EleccionSimple.new(
  					:pregunta => "salida de : 
  					class Xyz \n def pots\n
@@ -62,8 +63,8 @@ describe Prct06 do
 				
 				@lista_enlazada.pop
 				
-				
- 				
+				@nodo6=nodo.new("2", nil)
+ 				@lista_enlazada2.push(@nodo6)
  			end
  			context "Comprobacion de existencia de metodos" do
  				it "existe un metodo pop" do
@@ -73,6 +74,17 @@ describe Prct06 do
  					expect(@lista_enlazada).to respond_to :to_tex
  				end
  			end
+			context "Debe existir de la lista con sus datos y su siguiente" do 
+			  it "debe existir un nodo con valor "do
+			    expect(@nodo6.valor).to match("2")
+			  end
+			  #it " se extrae el primer elemento de la lista" 
+			  
+			  it "Debe existir una lista con su cabeza"do
+			    a=@nodo6.valor
+			  expect(@cabeza.valor)== a
+			  end
+			end
 
 
 
