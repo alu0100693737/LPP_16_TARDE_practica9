@@ -14,7 +14,7 @@ describe Prct06 do
  				 	:Op_incorrecta => ['#<Xyz:0x00000002bf0ed0>',0, "ninguna de las anteriores" ])
  
  				@nodo1=nodo.new(@preg1, nil)
- 				@lista_enlazada=Prct06::Lista_enlazada.new(2,2)
+ 				@lista_enlazada=Prct06::Lista_enlazada.new
  				
  				@preg2=Preguntas::EleccionSimple.new(
  				      :pregunta => "salida de :
@@ -60,7 +60,7 @@ describe Prct06 do
  				@lista_enlazada.push(@nodo4)
  				@lista_enlazada.push(@nodo5)
 				
-				#@lista_enlazada.pop
+				@lista_enlazada.pop
 				
 				
  				

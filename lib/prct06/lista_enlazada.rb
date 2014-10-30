@@ -4,6 +4,7 @@ module Prct06
     attr_accessor :cabeza, :ultelem
     
     # create a Struct with :value and :next
+    nodo = Struct.new(:valor, :siguiente)
     
     def initialize(a=nil, b=nil)
    	@cabeza=a
@@ -11,12 +12,22 @@ module Prct06
     end
     
     def push(args)
-      array=[]
-      array.unshift << args
+      if @cabeza== nil 
+	cabeza=args
+      else
+	args.siguiente = cabeza
+	cabeza = args
+      end
     end 
     
     def pop()
-      array.shift >> args
+      if @cabeza!=nil
+	destruir = cabeza
+	cabeza = cabeza.siguiente  
+	destruir.valor
+      else
+	puts 'No habia nada en la lista enlazada'
+      end
     end
     
      def to_tex
