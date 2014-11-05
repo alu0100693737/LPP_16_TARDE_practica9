@@ -1,20 +1,17 @@
-# Prct06
+# Prct07
 
 Propiedad de:
 
 Iván García Campos
 Fabian Díaz Lorenzo
 
-Practica 6. Programacion orientada a objetos.
+Practica 7. Programacion orientada a objetos. Herencia
 
 El objetivo de la practica es la implementacion de una clase Ruby para
-representar y gestionar listas enlazadas.
+representar y gestionar listas doblemente enlazadas.
 Para la declaración se utilizará un Struct
 
-Terminado los test que comprueben el funcionamiento de dicha clase se trabajara
-sobre la practica anterior para resolver las preguntas del apartado dos.
-
-
+Se usará la herencia.
 
 
 

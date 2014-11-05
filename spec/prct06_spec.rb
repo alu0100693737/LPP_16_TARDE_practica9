@@ -5,7 +5,7 @@ describe Prct06 do
 		describe Prct06::Lista_enlazada do
 
 			before :each do
-				nodo = Struct.new(:valor, :siguiente)
+				nodo = Struct.new(:valor, :siguiente, :anterior)
 				@lista_enlazada=Prct06::Lista_enlazada.new
 				@lista_enlazada2=Prct06::Lista_enlazada.new
 #  				@preg1=Preguntas::EleccionSimple.new(
