@@ -1,7 +1,7 @@
 require 'pry'
 module Preguntas
-  class EleccionSimple
-    attr_accessor :pregunta, :Op_correcta, :Op_incorrecta
+  class Preg
+  attr_accessor :pregunta, :Op_correcta, :Op_incorrecta
     
     def initialize args
       @pregunta = args[:pregunta]
@@ -12,7 +12,7 @@ module Preguntas
         raise ArgumentError , 'Specify :pregunta , :Op_correcta y :Op_incorrecta' unless @Op_incorrecta
     end
     
-    def to_html
+     def to_html
 		opcion = @Op_incorrecta+[@Op_correcta]
 		opcion = opcion.shuffle
 		s= ''
@@ -24,14 +24,19 @@ module Preguntas
 		#html <<= -"HTML"
 		"#{@pregunta}<br/>\n#{s}\n"
     end
+  
+  end 
     
-    def to_gift
+    class EleccionSimple <Preg 
+    #attr_accessor :pregunta, :Op_correcta, :Op_incorrecta
+    
+    def initialize args
+     super(args)
     end
     
-    def to_tex
-    end
-
-    def to_s
+   
+    
+      def to_s
       opcion = @Op_incorrecta+[@Op_correcta]
       opcion = opcion.shuffle
       s= ''
@@ -45,5 +50,28 @@ module Preguntas
 	
     end
 		
+  end
+  class Verdadero_Falso < Preg
+    def initialize args
+     super(args)
+    end
+    
+   
+    
+      def to_s
+      opcion = @Op_incorrecta+[@Op_correcta]
+      opcion = opcion.shuffle
+      s= ''
+      opcion.each do |opcion|
+	
+	s += %Q{-#{opcion}\n}
+	
+      end
+	 "#{@pregunta} \n #{s}\n"
+
+	
+    end
+    
+    
   end
 end

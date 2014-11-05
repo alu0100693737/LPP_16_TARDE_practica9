@@ -35,5 +35,8 @@ module Prct06
     end
     
   end
+  #class Lista_enlazada_doble
+  
+  end
 end
     
