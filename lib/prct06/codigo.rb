@@ -26,7 +26,10 @@ module Preguntas
     end
   
   end 
+
    
+
+    
     class EleccionSimple <Preg 
     #attr_accessor :pregunta, :Op_correcta, :Op_incorrecta
     
