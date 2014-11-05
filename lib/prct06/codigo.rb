@@ -26,16 +26,15 @@ module Preguntas
     end
   
   end 
-  
-  
-  lalalalal
-  class EleccionSimple <Preg 
+   
+    class EleccionSimple <Preg 
     #attr_accessor :pregunta, :Op_correcta, :Op_incorrecta
     
     def initialize args
      super(args)
     end
     
+
    
     
       def to_s
