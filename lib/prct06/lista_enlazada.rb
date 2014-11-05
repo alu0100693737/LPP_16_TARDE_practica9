@@ -13,7 +13,12 @@ module Prct06
     
     def push_antes(base,nuevo)
       if @cabeza== nil 
-	cabeza=args
+	cabeza=nuevo
+      elsif @base==nil 
+	nuevo.siguiente = cabeza
+	cabeza.anterior = nuevo
+	#suponemos que nuevo anterio ya es nulo
+      
       else
 	
 	aux=@cabeza
@@ -30,8 +35,14 @@ module Prct06
     end 
      def push_despues(base,nuevo)
       if @cabeza== nil 
-	cabeza=args
-      else
+	  cabeza=nuevo
+      
+      elsif @base==nil 
+	nuevo.siguiente = cabeza
+	cabeza.anterior = nuevo
+	#suponemos que nuevo anterio ya es nulo
+      
+      else 
 	  aux=@cabeza
 	while aux.valor =! base.valor 
 	 aux.siguiente = aux
@@ -64,7 +75,8 @@ module Prct06
     end
     
     
-  
+  def to_tex
+  end
     
   end
     
