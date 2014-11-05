@@ -58,12 +58,12 @@ describe Prct06 do
 #  				@lista_enlazada.push(@nodo1)
 #  				@lista_enlazada.push(@nodo2)
 #  				@lista_enlazada.push(@nodo3)
- 				@lista_enlazada.push(@nodo4)
- 				@lista_enlazada.push(@nodo5)
-				@lista_enlazada.pop
+ 				@lista_enlazada.push_antes(nil, @nodo4)
+ 				@lista_enlazada.push_despues(@nodo4, @nodo5)
+				#@lista_enlazada.pop
 				
 				@nodo6=nodo.new("2", nil)
- 				@lista_enlazada2.push(@nodo6)
+ 				@lista_enlazada2.push_antes(nil,@nodo6)
  			end
 			
 			context "cuando se construye una pregunta" do
