@@ -79,6 +79,15 @@ describe Prct06 do
 # 				it " Además, se tendra una respuesta correcta única " do
 # 					expect(@preg5.Op_correcta) == 'Falso'
 # 				end
+				it " tiene que tener un texto y algunas opciones" do
+					expect(@preg5.pregunta).to match("(\w|\s)*clase tablero ")
+					expect(@preg5.Op_correcta)== 'Falso'
+					expect(@preg5.Op_incorrecta)==['Cierto']
+				end
+				
+				
+				
+				
 			end
 			
 			
