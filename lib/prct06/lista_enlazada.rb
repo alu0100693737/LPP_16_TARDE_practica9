@@ -44,36 +44,30 @@ module Prct06
       end
     end 
     
-    def pop_antes(nodo)
+    def pop(nodo)
       if @cabeza!=nil
 	
-	destruir = cabeza
-	cabeza = cabeza.siguiente  
-	destruir.valor
-      else
-	puts 'No habia nada en la lista enlazada'
-	return nil
-      end
-    end
-     def pop_despues(nodo)
-      if @cabeza!=nil
-	destruir = cabeza
-	cabeza = cabeza.siguiente  
-	destruir.valor
+	aux=@cabeza
+	while aux.valor =! nodo.valor 
+	 aux.siguiente = aux
+	end 
+	destruir =aux.valor
+	aux2=nodo.anterior
+	aux3=nodo.siguiente
+	aux2.anterior =aux3
+	aux3.anterior=aux2
+	destruir.to_s
       else
 	puts 'No habia nada en la lista enlazada'
 	return nil
       end
     end
     
-     def to_tex
-    end
+    
+  
     
   end
-    def push_ante
-    end
-    def pop_final
-    end
-  end
+    
 end
+
     
