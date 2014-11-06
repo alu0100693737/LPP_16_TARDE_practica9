@@ -1,17 +1,18 @@
-# Prct07
+# Prct08
 
 Propiedad de:
 
 Iván García Campos
 Fabian Díaz Lorenzo
 
-Practica 7. Programacion orientada a objetos. Herencia
+Practica 8. Programacion orientada a objetos. Modulos
 
 El objetivo de la practica es la implementacion de una clase Ruby para
 representar y gestionar listas doblemente enlazadas.
 Para la declaración se utilizará un Struct
 
-Se usará la herencia.
+En esta practica se hará uso de los modulos ENUMERABLE y COMPARABLE para la clase Seleccion 
+Simple, Verdadero y Falso y Listas enlazadas.
 
 
 
