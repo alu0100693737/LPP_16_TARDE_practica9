@@ -101,9 +101,9 @@ module Preguntas
 
 	
       end#def to_s
-    +
+   
 
-	def<=>(other)
+	def <=>(other)
 	  super
 	  Op_falsa.size<=> other.Op_falsa.size
 	end
