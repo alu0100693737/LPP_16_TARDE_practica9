@@ -106,7 +106,7 @@ describe Prct06 do
 		describe Prct06::Lista_enlazada do
 
 			before :each do
-				nodo = Struct.new(:valor, :siguiente, :anterior)
+				nodo = Struct.new(:valor, :antes, :siguiente)
 				@lista_enlazada=Prct06::Lista_enlazada.new
 				@lista_enlazada2=Prct06::Lista_enlazada.new
  				@preg1=Preguntas::EleccionSimple.new(
@@ -159,37 +159,36 @@ describe Prct06 do
 #  				@lista_enlazada.push(,@nodo1)
 #  				@lista_enlazada.push(@nodo2)
 #  				@lista_enlazada.push(@nodo3)
- 				@lista_enlazada.push_antes(nil, @nodo4)
- 				@lista_enlazada.push_despues(@nodo4, @nodo5)
-				#@lista_enlazada.pop
+ 				@lista_enlazada.push_antes(nil, @nodo1)
+ 				@lista_enlazada.push_despues(@nodo1, @nodo5)
+				@lista_enlazada.push_antes(@nodo1, @nodo3)
+ 				@lista_enlazada.push_despues(@nodo5, @nodo4)
+				@lista_enlazada.push_despues(@nodo3, @nodo2)    
 				
 				@nodo6=nodo.new("2", nil)
  				@lista_enlazada2.push_antes(nil,@nodo6)
  			end
 			
-			context "cuando se construye una pregunta" do
-				it " tiene que tener un texto y algunas opciones" do
-					expect(@preg4.pregunta).to match("salida de ")
-					expect(@preg4.Op_correcta)== 'Una instancia de la clase Class'
-					expect(@preg4.Op_incorrecta)==['una constante', 'un objeto', 'ninguna de las anteriores']
-				end
-				it "tiene que tener 3 componentes" do
-					expect{Preguntas::EleccionSimple.new(
-						 :pregunta => '5*8=?' )}.to raise_error(ArgumentError)
-				end
-# 				it " Además, se tendra una respuesta correcta única " do
-# 					expect(@preg5.Op_correcta) == 'Falso'
+# 			context "cuando se construye una pregunta" do
+# 				it " tiene que tener un texto y algunas opciones" do
+# 					expect(@preg4.pregunta).to match("salida de ")
+# 					expect(@preg4.Op_correcta)== 'Una instancia de la clase Class'
+# 					expect(@preg4.Op_incorrecta)==['una constante', 'un objeto', 'ninguna de las anteriores']
 # 				end
-				it " tiene que tener un texto y algunas opciones" do
-					expect(@preg5.pregunta).to match("(\w|\s)*clase tablero ")
-					expect(@preg5.Op_correcta)== 'Falso'
-					expect(@preg5.Op_incorrecta)==['Cierto']
-				end
-				
-				
-				
-				
-			end
+# 				it "tiene que tener 3 componentes" do
+# 					expect{Preguntas::EleccionSimple.new(
+# 						 :pregunta => '5*8=?' )}.to raise_error(ArgumentError)
+# 				end
+# # 				it " Además, se tendra una respuesta correcta única " do
+# # 					expect(@preg5.Op_correcta) == 'Falso'
+# # 				end
+# 				it " tiene que tener un texto y algunas opciones" do
+# 					expect(@preg5.pregunta).to match("(\w|\s)*clase tablero ")
+# 					expect(@preg5.Op_correcta)== 'Falso'
+# 					expect(@preg5.Op_incorrecta)==['Cierto']
+# 				end
+# 				
+#	end
 			
 			
 			
@@ -201,12 +200,11 @@ describe Prct06 do
  					expect(@lista_enlazada).to respond_to :to_tex
  				end
  			end
-			context "Debe existir de la lista con sus datos y su siguiente" do 
-			  it "debe existir un nodo con valor "do
-			    expect(@nodo6.valor).to match("2")
-			  end
-			 
-			  end
+			context "Clase Lista_enlazada " do 
+			  it "Pertenece a la clase lista_enlazada"do
+			         expect(@lista_enlazada.class) ==  Lista_enlazada       
+		  	  end
+			  
 			end
 
 end 
