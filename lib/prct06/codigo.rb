@@ -1,16 +1,14 @@
 require 'pry'
 module Preguntas
   class Preg
-  attr_accessor :pregunta, :Op_correcta, :Op_incorrecta
+  attr_accessor :pregunta
     
+    include Comparable
+  
     def initialize args
       @pregunta = args[:pregunta]
 	raise ArgumentError , 'Specify :pregunta , :Op_correcta y :Op_incorrecta' unless @pregunta
-      @Op_correcta = args[:Op_correcta]
-	raise ArgumentError , 'Specify :pregunta , :Op_correcta y :Op_incorrecta' unless @Op_correcta
-      @Op_incorrecta = args[:Op_incorrecta]
-        raise ArgumentError , 'Specify :pregunta , :Op_correcta y :Op_incorrecta' unless @Op_incorrecta
-    end
+          end
     
      def to_html
 		opcion = @Op_incorrecta+[@Op_correcta]
@@ -24,6 +22,10 @@ module Preguntas
 		#html <<= -"HTML"
 		"#{@pregunta}<br/>\n#{s}\n"
     end
+    
+    def <=>(another)
+      pregunta.size <=> another.pregunta.size
+    end
   
   end 
 
@@ -33,8 +35,17 @@ module Preguntas
     class EleccionSimple <Preg 
     #attr_accessor :pregunta, :Op_correcta, :Op_incorrecta
     
+      
     def initialize args
-     super(args)
+     
+      :Op_correcta, :Op_incorrecta
+      
+      @Op_correcta = args[:Op_correcta]
+	raise ArgumentError , 'Specify :pregunta , :Op_correcta y :Op_incorrecta' unless @Op_correcta
+      @Op_incorrecta = args[:Op_incorrecta]
+        raise ArgumentError , 'Specify :pregunta , :Op_correcta y :Op_incorrecta' unless @Op_incorrecta
+      
+	super(args[:pregunta])
     end
     
 
@@ -55,9 +66,22 @@ module Preguntas
     end
 		
   end
+  
+  
   class Verdadero_Falso < Preg
+    
+    :Op_verdadera, :Op_falsa
+    
     def initialize args
-     super(args)
+      
+      @Op_verdadera = args[:Op_verdadera]
+	raise ArgumentError , 'Specify :pregunta , :Op_correcta y :Op_incorrecta' unless @Op_correcta
+      @Op_falsa = args[:Op_falsa]
+        raise ArgumentError , 'Specify :pregunta , :Op_correcta y :Op_incorrecta' unless @Op_incorrecta
+
+      
+      
+      super(args[:pregunta])
     end
     
    
@@ -74,8 +98,13 @@ module Preguntas
 	 "#{@pregunta} \n #{s}\n"
 
 	
-    end
-    
+      end#def to_s
+    +
+
+	def<=>(another)
+	  super
+	  Op_falsa.size<=> another.Op_falsa.size
+	end
     
   end
 end
