@@ -21,24 +21,38 @@ describe Preguntas do
 		
 		end 
 		describe Preguntas::EleccionSimple do
-		
-		
+		  before :each do 
+		    @preg2=Preguntas::EleccionSimple.new(
+ 			    :pregunta => "salida de :
+			    class Array \n 
+			    def say_hi \n HEY!end end \n
+			    p[1,, bob].say_hi", 
+ 			    :Op_correcta => "Ninguna de las anteriores",
+ 			    :Op_incorrecta => ['1', 'bob', 'HEY!'])
+		  end
+		  context "Clase EleccionSimple" do
+		    it "Es de la clase SeleccionSimple" do
+		      expect(@preg2.class) ==  EleccionSimple      
+		    end
+	        
+		    it "Debe tener una respuesta correcta y varias incorrecta" do
+		      expect(@preg2.Op_correcta) == 'Ninguna de las anteriores'	       
+		      expect(@preg2.Op_incorrecta) == ['1', 'bob', 'HEY!']       
+		    end	
+	    
+		  it "tiene que tener un metodo to_s" do
+		    expect(@preg2).to respond_to :to_s       
+		  end	
+	    
+		  end
+	      end	    
+		  
 		
 		
 		end
 		describe Preguntas::Verdadero_Falso do
 		end
 end
-
-
-
-
-
-
-
-
-
-
 
 
 
