@@ -1,6 +1,48 @@
 require 'spec_helper'
 require 'prct06'
 #require "lib/prct06"
+describe Preguntas do
+		describe Preguntas::Preg do
+		  before :each do
+		    @preg1=Preguntas::EleccionSimple.new(
+ 			:pregunta => "salida de : 
+ 			class Xyz \n def pots\n
+ 			@nice\n end\nend\n",:Op_correcta => 'nil',
+ 			:Op_incorrecta => ['#<Xyz:0x00000002bf0ed0>',0, "ninguna de las anteriores" ])
+		  end
+		  context "La Pregunta tiene que tener un enunciado" do
+		      it "tiene que tener un enunciado" do
+			  expect(@preg1.pregunta) == 'salida de : 
+				class Xyz \n def pots\n
+				  @nice\n end\nend\n'
+		      end
+		  end
+		 end
+		
+		end 
+		describe Preguntas::EleccionSimple do
+		
+		
+		
+		
+		end
+		describe Preguntas::Verdadero_Falso do
+		end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 describe Prct06 do
 		describe Prct06::Lista_enlazada do
 
@@ -8,37 +50,37 @@ describe Prct06 do
 				nodo = Struct.new(:valor, :siguiente, :anterior)
 				@lista_enlazada=Prct06::Lista_enlazada.new
 				@lista_enlazada2=Prct06::Lista_enlazada.new
-#  				@preg1=Preguntas::EleccionSimple.new(
-#  					:pregunta => "salida de : 
-#  					class Xyz \n def pots\n
-#  					@nice\n end\nend\n",:Op_correcta => 'nil',
-#  				 	:Op_incorrecta => ['#<Xyz:0x00000002bf0ed0>',0, "ninguna de las anteriores" ])
-#  
-#  				@nodo1=nodo.new(@preg1, nil)
-#  				@lista_enlazada=Prct06::Lista_enlazada.new
-#  				
-#  				@preg2=Preguntas::EleccionSimple.new(
-#  				      :pregunta => "salida de :
-#  				      hash_raro ={ \n
-#  				      [1, 2, 3] => Object.new(), \n
-#  				      Hash.new => :toto
-#  				      }", :Op_correcta => "Cierto", 
-#  				      :Op_incorrecta => "Falso" )
-#  				
-#  				@nodo2=nodo.new(@preg2, nil)
-#  				
-#  				@preg3=Preguntas::EleccionSimple.new(
-#  				      :pregunta => "salida de :
-#  				      class Array \n 
-#  				      def say_hi \n
-#  				      HEY! 
-#  				      end
-#  				      end \n
-#  				      p[1,, bob].say_hi", 
-#  				      :Op_correcta => "Ninguna de las anteriores",
-#  				      :Op_incorrecta => ['1', 'bob', 'HEY!'])
-#  				      
-#  				@nodo3=nodo.new(@preg3, nil)
+ 				@preg1=Preguntas::EleccionSimple.new(
+ 					:pregunta => "salida de : 
+ 					class Xyz \n def pots\n
+ 					@nice\n end\nend\n",:Op_correcta => 'nil',
+ 				 	:Op_incorrecta => ['#<Xyz:0x00000002bf0ed0>',0, "ninguna de las anteriores" ])
+ 
+ 				@nodo1=nodo.new(@preg1, nil)
+ 				@lista_enlazada=Prct06::Lista_enlazada.new
+ 				
+ 				@preg2=Preguntas::EleccionSimple.new(
+ 				      :pregunta => "salida de :
+ 				      hash_raro ={ \n
+ 				      [1, 2, 3] => Object.new(), \n
+ 				      Hash.new => :toto
+ 				      }", :Op_correcta => "Cierto", 
+ 				      :Op_incorrecta => "Falso" )
+ 				
+ 				@nodo2=nodo.new(@preg2, nil)
+ 				
+ 				@preg3=Preguntas::EleccionSimple.new(
+ 				      :pregunta => "salida de :
+ 				      class Array \n 
+ 				      def say_hi \n
+ 				      HEY! 
+ 				      end
+ 				      end \n
+ 				      p[1,, bob].say_hi", 
+ 				      :Op_correcta => "Ninguna de las anteriores",
+ 				      :Op_incorrecta => ['1', 'bob', 'HEY!'])
+ 				      
+ 				@nodo3=nodo.new(@preg3, nil)
  				
  				@preg4=Preguntas::EleccionSimple.new(
  				      :pregunta => "salida de :
@@ -55,7 +97,7 @@ describe Prct06 do
  				@nodo4=nodo.new(@preg4, nil)
  				@nodo5=nodo.new(@preg5, nil)
  						
-#  				@lista_enlazada.push(@nodo1)
+#  				@lista_enlazada.push(,@nodo1)
 #  				@lista_enlazada.push(@nodo2)
 #  				@lista_enlazada.push(@nodo3)
  				@lista_enlazada.push_antes(nil, @nodo4)
@@ -104,10 +146,7 @@ describe Prct06 do
 			  it "debe existir un nodo con valor "do
 			    expect(@nodo6.valor).to match("2")
 			  end
-			  #it " se extrae el primer elemento de la lista" 
-			  
-			  it "Debe existir una lista con su cabeza"do
-			     #expect(@lista_enlazada2.cabeza.valor)== "2"
+			 
 			  end
 			end
 
