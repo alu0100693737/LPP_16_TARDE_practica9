@@ -16,10 +16,9 @@ describe Preguntas do
 				class Xyz \n def pots\n
 				  @nice\n end\nend\n'
 		      end
-		  end
+		  
 		 end
-		
-		end 
+		end		
 		describe Preguntas::EleccionSimple do
 		  before :each do 
 		    @preg2=Preguntas::EleccionSimple.new(
@@ -29,6 +28,11 @@ describe Preguntas do
 			    p[1,, bob].say_hi", 
  			    :Op_correcta => "Ninguna de las anteriores",
  			    :Op_incorrecta => ['1', 'bob', 'HEY!'])
+		    @preg4=Preguntas::EleccionSimple.new(
+			  :pregunta => "salida de :
+ 			  class Objeto \n
+ 			  end", :Op_correcta => "Una instancia de la clase Class",
+ 			  :Op_incorrecta => ['una constante', 'un objeto', 'ninguna de las anteriores'])
 		  end
 		  context "Clase EleccionSimple" do
 		    it "Es de la clase SeleccionSimple" do
@@ -40,9 +44,13 @@ describe Preguntas do
 		      expect(@preg2.Op_incorrecta) == ['1', 'bob', 'HEY!']       
 		    end	
 	    
-		  it "tiene que tener un metodo to_s" do
-		    expect(@preg2).to respond_to :to_s       
-		  end	
+		    it "tiene que tener un metodo to_s" do
+		      expect(@preg2).to respond_to :to_s       
+		    end	
+		    it "Comparando preguntas" do
+		      expect(@preg4==@preg2).to eq(false)
+		      expect(@preg4 <@preg2).to eq(true)
+		  
 	    
 		  end
 	      end	    
@@ -164,6 +172,6 @@ describe Prct06 do
 			  end
 			end
 
-		end 
+end 
 	
-end
+
