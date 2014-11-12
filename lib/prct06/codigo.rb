@@ -50,6 +50,7 @@ module Preguntas
     
 
    def <=>(other)
+     super
      Op_correcta.size<=>other.Op_correcta.size
    end
    
