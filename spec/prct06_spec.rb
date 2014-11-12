@@ -68,8 +68,8 @@ describe Preguntas do
 			hash_raro ={ \n
 			[1, 2, 3] => Object.new(), \n
  			Hash.new => :toto
- 			}", :Op_correcta => "Cierto", 
-			:Op_incorrecta => "Falso" )
+ 			}", :Op_verdadera => "Cierto", 
+			:Op_falsa => "Falso" )
 		  end
 		  
 		  context "Clase EleccionSimple" do
