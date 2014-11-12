@@ -1,6 +1,7 @@
 module Prct06
   class Lista_enlazada
     
+    include Enumerable
     attr_accessor :cabeza,:valor, :siguiente,:antes
     
     # create a Struct with :value and :next
@@ -75,8 +76,16 @@ module Prct06
     end
     
     
-  def to_tex
-  end
+    def to_tex
+    end
+    
+    def each
+      aux =@cabeza
+      while(aux!=nil)do
+	yield aux.valor
+	aux=aux.siguiente
+      end
+    end
     
   end
     
