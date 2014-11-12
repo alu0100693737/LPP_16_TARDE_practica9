@@ -6,12 +6,12 @@ module Preguntas
     include Comparable
   
     def initialize args
-      @pregunta = args[:pregunta]
-	raise ArgumentError , 'Specify :pregunta , :Op_correcta y :Op_incorrecta' unless @pregunta
+      @pregunta = args
+	raise ArgumentError , 'Specify :pregunta , :op_correcta y :Op_incorrecta' unless @pregunta
           end
     
      def to_html
-		opcion = @Op_incorrecta+[@Op_correcta]
+		opcion = @Op_incorrecta+[@op_correcta]
 		opcion = opcion.shuffle
 		s= ''
 		opcion.each do |opcion|
@@ -25,23 +25,23 @@ module Preguntas
     
     def <=>(other)
       pregunta.size <=> other.pregunta.size
-      pregunta = other.pregunta
+      pregunta == other.pregunta
     end
   
   end 
 
     class EleccionSimple <Preg 
-    attr_accessor :Op_correcta, :Op_incorrecta
+    attr_accessor :op_correcta, :Op_incorrecta
     
       
     def initialize args
      
     
       
-      @Op_correcta = args[:Op_correcta]
-	raise ArgumentError , 'Specify :pregunta , :Op_correcta y :Op_incorrecta' unless @Op_correcta
+      @op_correcta = args[:op_correcta]
+	raise ArgumentError , 'Specify :pregunta , :op_correcta y :Op_incorrecta' unless @op_correcta
       @Op_incorrecta = args[:Op_incorrecta]
-        raise ArgumentError , 'Specify :pregunta , :Op_correcta y :Op_incorrecta' unless @Op_incorrecta
+        raise ArgumentError , 'Specify :pregunta , :op_correcta y :Op_incorrecta' unless @Op_incorrecta
       
 	super(args[:pregunta])
     end
@@ -49,12 +49,12 @@ module Preguntas
 
    def <=>(other)
      super
-     Op_correcta.size<=>other.Op_correcta.size
-     Op_correca==other.Op_correcta
+     op_correcta.size <=> other.op_correcta.size
+     #op_correcta==other.op_correcta
    end
    
       def to_s
-      opcion = @Op_incorrecta+[@Op_correcta]
+      opcion = @Op_incorrecta+[@op_correcta]
       opcion = opcion.shuffle
       s= ''
       opcion.each do |opcion|
@@ -72,14 +72,14 @@ module Preguntas
   
   class Verdadero_Falso < Preg
     
-    attr_accessor :Op_verdadera, :Op_falsa
+    attr_accessor :Op_verdadera, :op_falsa
         
     def initialize args
       
       @Op_verdadera = args[:Op_verdadera]
-	raise ArgumentError , 'Specify :pregunta , :Op_verdadera y :Op_falsa' unless @Op_verdadera
-      @Op_falsa = args[:Op_falsa]
-        raise ArgumentError , 'Specify :pregunta , :Op_verdadera y :Op_falsa' unless @Op_falsa
+	raise ArgumentError , 'Specify :pregunta , :Op_verdadera y :op_falsa' unless @Op_verdadera
+      @op_falsa = args[:op_falsa]
+        raise ArgumentError , 'Specify :pregunta , :Op_verdadera y :op_falsa' unless @op_falsa
 
       
       
@@ -89,7 +89,7 @@ module Preguntas
    
     
       def to_s
-      opcion = @Op_incorrecta+[@Op_correcta]
+      opcion = @Op_incorrecta+[@op_correcta]
       opcion = opcion.shuffle
       s= ''
       opcion.each do |opcion|
@@ -105,7 +105,8 @@ module Preguntas
 
 	def <=>(other)
 	  super
-	  Op_falsa.size<=> other.Op_falsa.size
+	  op_falsa.size<=> other.op_falsa.size
+	   #op_falsa == other.op_falsa
 	end
     
   end
