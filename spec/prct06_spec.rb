@@ -21,14 +21,14 @@ describe Preguntas do
 		end		
 		describe Preguntas::EleccionSimple do
 		  before :each do 
-		    @preg2=Preguntas::EleccionSimple.new(
+		    @preg1=Preguntas::EleccionSimple.new(
  			    :pregunta => "salida de :
 			    class Array \n 
 			    def say_hi \n HEY!end end \n
 			    p[1,, bob].say_hi", 
  			    :Op_correcta => "Ninguna de las anteriores",
  			    :Op_incorrecta => ['1', 'bob', 'HEY!'])
-		    @preg4=Preguntas::EleccionSimple.new(
+		    @preg2=Preguntas::EleccionSimple.new(
 			  :pregunta => "salida de :
  			  class Objeto \n
  			  end", :Op_correcta => "Una instancia de la clase Class",
@@ -36,20 +36,20 @@ describe Preguntas do
 		  end
 		  context "Clase EleccionSimple" do
 		    it "Es de la clase SeleccionSimple" do
-		      expect(@preg2.class) ==  EleccionSimple      
+		      expect(@preg1.class) ==  EleccionSimple      
 		    end
 	        
 		    it "Debe tener una respuesta correcta y varias incorrecta" do
-		      expect(@preg2.Op_correcta) == 'Ninguna de las anteriores'	       
-		      expect(@preg2.Op_incorrecta) == ['1', 'bob', 'HEY!']       
+		      expect(@preg1.Op_correcta) == 'Ninguna de las anteriores'	       
+		      expect(@preg1.Op_incorrecta) == ['1', 'bob', 'HEY!']       
 		    end	
 	    
 		    it "tiene que tener un metodo to_s" do
-		      expect(@preg2).to respond_to :to_s       
+		      expect(@preg1).to respond_to :to_s       
 		    end	
 		    it "Comparando preguntas" do
-		      expect(@preg4==@preg2).to eq(false)
-		      expect(@preg4 <@preg2).to eq(true)
+		      expect(@preg2==@preg1).to eq(false)
+		      expect(@preg2 <@preg1).to eq(true)
 		  
 	    
 		  end
@@ -59,6 +59,43 @@ describe Preguntas do
 		
 		end
 		describe Preguntas::Verdadero_Falso do
+		  before :each do 
+		    @preg1=Preguntas::EleccionSimple.new(
+ 			:pregunta => "Es apropiado que una clase tablero herede de la clase juego? ",
+ 			:Op_verdadera => "Falso", :Op_falsa => 'Cierto')
+		    @preg2=Preguntas::EleccionSimple.new(
+			:pregunta => "salida de :
+			hash_raro ={ \n
+			[1, 2, 3] => Object.new(), \n
+ 			Hash.new => :toto
+ 			}", :Op_correcta => "Cierto", 
+			:Op_incorrecta => "Falso" )
+		  end
+		  
+		  context "Clase EleccionSimple" do
+		    it "Es de la clase SeleccionSimple" do
+		      expect(@preg1.class) ==  EleccionSimple      
+		    end
+	        
+		    it "Debe tener una respuesta correcta y varias incorrecta" do
+		      expect(@preg1.Op_verdadera) == 'Cierto'	       
+		      expect(@preg1.Op_falsa) == 'Falso'      
+		    end	
+	    
+		    it "tiene que tener un metodo to_s" do
+		      expect(@preg1).to respond_to :to_s       
+		    end	
+		    it "Comparando preguntas" do
+		      expect(@preg2==@preg1).to eq(false)
+		      expect(@preg2 <@preg1).to eq(false)
+		  
+	    
+		  end
+		  
+		  
+		  
+		  
+		  
 		end
 end
 
@@ -78,7 +115,7 @@ describe Prct06 do
  					@nice\n end\nend\n",:Op_correcta => 'nil',
  				 	:Op_incorrecta => ['#<Xyz:0x00000002bf0ed0>',0, "ninguna de las anteriores" ])
  
- 				@nodo1=nodo.new(@preg1, nil)
+ 				@nodo1=nodo.new(@preg1, nil, nil)
  				@lista_enlazada=Prct06::Lista_enlazada.new
  				
  				@preg2=Preguntas::EleccionSimple.new(
@@ -89,7 +126,7 @@ describe Prct06 do
  				      }", :Op_correcta => "Cierto", 
  				      :Op_incorrecta => "Falso" )
  				
- 				@nodo2=nodo.new(@preg2, nil)
+ 				@nodo2=nodo.new(@preg2, nil, nil)
  				
  				@preg3=Preguntas::EleccionSimple.new(
  				      :pregunta => "salida de :
