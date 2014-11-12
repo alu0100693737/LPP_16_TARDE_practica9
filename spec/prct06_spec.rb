@@ -97,9 +97,9 @@ describe Preguntas do
 		  
 		  
 		end
+		end
+
 end
-
-
 
 
 describe Prct06 do
@@ -108,7 +108,7 @@ describe Prct06 do
 			before :each do
 				nodo = Struct.new(:valor, :antes, :siguiente)
 				@lista_enlazada=Prct06::Lista_enlazada.new
-				@lista_enlazada2=Prct06::Lista_enlazada.new
+				#@lista_enlazada2=Prct06::Lista_enlazada.new
  				@preg1=Preguntas::EleccionSimple.new(
  					:pregunta => "salida de : 
  					class Xyz \n def pots\n
@@ -156,17 +156,9 @@ describe Prct06 do
  				@nodo4=nodo.new(@preg4, nil)
  				@nodo5=nodo.new(@preg5, nil)
  						
-#  				@lista_enlazada.push(,@nodo1)
-#  				@lista_enlazada.push(@nodo2)
-#  				@lista_enlazada.push(@nodo3)
- 				@lista_enlazada.push_antes(nil, @nodo1)
+  				@lista_enlazada.push_antes(nil, @nodo1)
  				@lista_enlazada.push_despues(@nodo1, @nodo5)
-				@lista_enlazada.push_antes(@nodo1, @nodo3)
- 				@lista_enlazada.push_despues(@nodo5, @nodo4)
-				@lista_enlazada.push_despues(@nodo3, @nodo2)    
-				
-				@nodo6=nodo.new("2", nil)
- 				@lista_enlazada2.push_antes(nil,@nodo6)
+							
  			end
 			
 # 			context "cuando se construye una pregunta" do
@@ -204,9 +196,22 @@ describe Prct06 do
 			  it "Pertenece a la clase lista_enlazada"do
 			         expect(@lista_enlazada.class) ==  Lista_enlazada       
 		  	  end
+			  it "se debe poder introducir un elemento en cualquier lugar "do
+			    @lista_enlazada.push_antes(@nodo1, @nodo3)
+			    @lista_enlazada.push_despues(@nodo5, @nodo4)
+			    @lista_enlazada.push_despues(@nodo3, @nodo2) 
+			    expect(@lista_enlazada.cabeza).to eq(@nodo3)
+			  end
+			  it "se debe poder sacar un elemento en cualquier lugar "do
+			      @lista_enlazada.pop_antes(@nodo3)
+			      expect(@lista_enlazada.cabeza).to eq(@nodo1)
+			  end
+			  it "Se puede hacer un each" do
+			    @lista_enlazada.each{ |i| i }
+			  end
 			  
 			end
 
-end 
-	
+      end 	
 
+end
