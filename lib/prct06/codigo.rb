@@ -31,12 +31,12 @@ module Preguntas
   end 
 
     class EleccionSimple <Preg 
-    #attr_accessor :pregunta, :Op_correcta, :Op_incorrecta
+    attr_accessor :Op_correcta, :Op_incorrecta
     
       
     def initialize args
      
-      :Op_correcta, :Op_incorrecta
+    
       
       @Op_correcta = args[:Op_correcta]
 	raise ArgumentError , 'Specify :pregunta , :Op_correcta y :Op_incorrecta' unless @Op_correcta
@@ -72,14 +72,14 @@ module Preguntas
   
   class Verdadero_Falso < Preg
     
-    :Op_verdadera, :Op_falsa
-    
+    attr_accessor :Op_verdadera, :Op_falsa
+        
     def initialize args
       
       @Op_verdadera = args[:Op_verdadera]
-	raise ArgumentError , 'Specify :pregunta , :Op_correcta y :Op_incorrecta' unless @Op_correcta
+	raise ArgumentError , 'Specify :pregunta , :Op_verdadera y :Op_falsa' unless @Op_verdadera
       @Op_falsa = args[:Op_falsa]
-        raise ArgumentError , 'Specify :pregunta , :Op_correcta y :Op_incorrecta' unless @Op_incorrecta
+        raise ArgumentError , 'Specify :pregunta , :Op_verdadera y :Op_falsa' unless @Op_falsa
 
       
       
