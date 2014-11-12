@@ -23,15 +23,13 @@ module Preguntas
 		"#{@pregunta}<br/>\n#{s}\n"
     end
     
-    def <=>(another)
-      pregunta.size <=> another.pregunta.size
+    def <=>(other)
+      pregunta.size <=> other.pregunta.size
+      pregunta = other.pregunta
     end
   
   end 
 
-   
-
-    
     class EleccionSimple <Preg 
     #attr_accessor :pregunta, :Op_correcta, :Op_incorrecta
     
@@ -52,6 +50,7 @@ module Preguntas
    def <=>(other)
      super
      Op_correcta.size<=>other.Op_correcta.size
+     Op_correca==other.Op_correcta
    end
    
       def to_s
