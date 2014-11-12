@@ -49,8 +49,10 @@ module Preguntas
     end
     
 
+   def <=>(other)
+     Op_correcta.size<=>other.Op_correcta.size
+   end
    
-    
       def to_s
       opcion = @Op_incorrecta+[@Op_correcta]
       opcion = opcion.shuffle
@@ -101,9 +103,9 @@ module Preguntas
       end#def to_s
     +
 
-	def<=>(another)
+	def<=>(other)
 	  super
-	  Op_falsa.size<=> another.Op_falsa.size
+	  Op_falsa.size<=> other.Op_falsa.size
 	end
     
   end
