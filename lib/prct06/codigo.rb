@@ -24,8 +24,8 @@ module Preguntas
     end
     
     def <=>(other)
-      pregunta.size <=> other.pregunta.size
-      pregunta == other.pregunta
+      pregunta <=> other.pregunta
+      #pregunta == other.pregunta
     end
   
   end 
@@ -105,7 +105,7 @@ module Preguntas
 
 	def <=>(other)
 	  super
-	  op_falsa.size<=> other.op_falsa.size
+	  op_falsa <=> other.op_falsa
 	   #op_falsa == other.op_falsa
 	end
     

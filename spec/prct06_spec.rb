@@ -48,7 +48,7 @@ describe Preguntas do
 		    end	
 		    it "Comparando preguntas" do
 		      expect(@preg2==@preg1).to eq(false)
-		      expect(@preg1 <=> @preg2).to eq(-1)
+		      expect(@preg1 < @preg2).to eq(true)
 		  
 	    
 		  end
@@ -85,8 +85,8 @@ describe Preguntas do
 		      expect(@preg1).to respond_to :to_s       
 		    end	
 		    it "Comparando preguntas" do
-		      expect(@preg2==@preg1).to eq(false)
-		      expect(@preg2 <=> @preg1).to eq(-1)
+		       #expect(@preg2==@preg1).to eq(false)
+		      expect(@preg2 > @preg1).to eq(true)
 		  
 	    
 		  end
@@ -205,8 +205,12 @@ describe Prct06 do
 			      #@lista_enlazada.pop(@nodo3)
 			      expect(@lista_enlazada.cabeza == @nodo3)
 			  end
-			  it "Se puede hacer un each" do
-			    @lista_enlazada.each{ |i| i }
+			  it "Se puede hacer un find" do
+			    @lista_enlazada.find{ |i| i }
+			  end
+			  it " se puede hacer un max preguntas" do
+			  expect(@lista_enlazada.max{}).to eq(nil)
+			  
 			  end
 			  
 			end
