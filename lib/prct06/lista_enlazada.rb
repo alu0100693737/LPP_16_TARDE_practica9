@@ -37,6 +37,7 @@ module Prct06
      def push_despues(base,nuevo)
       if @cabeza== nil 
 	  cabeza=nuevo
+	  
       
       elsif @base==nil 
 	nuevo.siguiente = cabeza
