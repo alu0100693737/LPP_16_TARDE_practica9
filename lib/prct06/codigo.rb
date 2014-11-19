@@ -8,7 +8,7 @@ module Preguntas
     def initialize args
       @pregunta = args
 	raise ArgumentError , 'Specify :pregunta , :op_correcta y :Op_incorrecta' unless @pregunta
-          end
+    end
     
      def to_html
 		opcion = @Op_incorrecta+[@op_correcta]
