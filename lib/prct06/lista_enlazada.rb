@@ -76,7 +76,15 @@ module Prct06
       end
     end
     
-    
+    def pop_principio()
+      if @cabeza !=null
+	aux=@cabeza
+	@cabeza=@cabeza.siguiente
+	@cabeza.anterior=nil
+	aux.siguiente=nil
+	aux.valor.
+      end
+    end  
     def to_tex
     end
     

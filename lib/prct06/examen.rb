@@ -35,9 +35,9 @@ module Prct06
 	
 	@nodo1=nodo.new(@preg1, nil,nil)
  	@nodo2=nodo.new(@preg2, nil,nil)
-	@nodo3=nodo.new(@preg1, nil,nil)
- 	@nodo4=nodo.new(@preg2, nil,nil)
-	@nodo5=nodo.new(@preg1, nil,nil)
+	@nodo3=nodo.new(@preg3, nil,nil)
+ 	@nodo4=nodo.new(@preg4, nil,nil)
+	@nodo5=nodo.new(@preg5, nil,nil)
 	@lista_enlazada.push_antes(nil, @nodo1)
  	@lista_enlazada.push_despues(@nodo1, @nodo2)					
   	@lista_enlazada.push_despues(@nodo2, @nodo3)
@@ -45,8 +45,9 @@ module Prct06
 	@lista_enlazada.push_despues(@nodo4, @nodo5)
       end
       
-      def mostrar
-	@lista_enlazada.
+      def pop()
+	cosa =@lista_enlazada.pop_principio()
+      end
 	
       
       
