@@ -1,18 +1,20 @@
-# Prct08
+# Prct09
 
 Propiedad de:
 
 Iván García Campos
 Fabian Díaz Lorenzo
 
-Practica 8. Programacion orientada a objetos. Modulos
+Practica 9. Programacion orientada a objetos. Metodos Singletons
 
-El objetivo de la practica es la implementacion de una clase Ruby para
-representar y gestionar listas doblemente enlazadas.
-Para la declaración se utilizará un Struct
+El objetivo de la practica es la implementacion de una clase Ruby Examen, 
+una clase Interfaz, una clase Lista enlazada y una clase pregunta de la que 
+heredan dos mas, una verdadera/falso y una preguntas correctas/incorrectas.
 
-En esta practica se hará uso de los modulos ENUMERABLE y COMPARABLE para la clase Seleccion 
-Simple, Verdadero y Falso y Listas enlazadas.
+El objetivo de la practica sera que el usuario interactue con la interfaz
+para responder a las preguntas de examen. Al finalizar, se dirá la nota 
+que ha obtenido el usuario.
+
 
 
 
