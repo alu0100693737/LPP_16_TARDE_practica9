@@ -83,7 +83,7 @@ module Prct06
     def each
       aux =@cabeza
       while(aux!=nil)do
-	yield aux.valor
+	yield aux.valor.to_s
 	aux=aux.siguiente
       end
     end
