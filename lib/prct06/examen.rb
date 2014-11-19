@@ -1,8 +1,9 @@
 module Prct06
   class Examen
     attr_accessor :lista_enlazada
-      nodo = Struct.new(:valor, :antes,:siguiente )
+      
       def initialize
+	nodo = Struct.new(:valor, :antes,:siguiente )
 	@lista_enlazada=Prct06::Lista_enlazada.new
 	@preg2=Preguntas::EleccionSimple.new(
  	    :pregunta => "salida de :
@@ -39,10 +40,10 @@ module Prct06
  	@nodo4=nodo.new(@preg4, nil,nil)
 	@nodo5=nodo.new(@preg5, nil,nil)
 	@lista_enlazada.push_antes(nil, @nodo1)
- 	@lista_enlazada.push_antes(@nodo1, @nodo2)					
-  	@lista_enlazada.push_antes(@nodo2, @nodo3)
-	@lista_enlazada.push_antes(@nodo3, @nodo4)
-	@lista_enlazada.push_antes(@nodo4, @nodo5)
+ 	@lista_enlazada.push_antes(nil, @nodo2)					
+  	@lista_enlazada.push_antes(nil, @nodo3)
+	@lista_enlazada.push_antes(nil, @nodo4)
+	@lista_enlazada.push_antes(nil, @nodo5)
       end
       
       def pop()
