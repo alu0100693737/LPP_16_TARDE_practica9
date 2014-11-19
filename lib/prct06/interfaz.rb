@@ -1,7 +1,7 @@
 module prct06
 
   class Interfaz
-    attr_accessor :examen, :nota
+    attr_accessor :examen, :nota, :dato_usuario
   
     def initialize()
       @examen=Prct06::examen.new
@@ -11,26 +11,33 @@ module prct06
     def mostrar
       puts "Examen de LPP, Introduzca su Nombre y apellidos: "
       STDOUT.flush
-      dato_usuario = gets.chomp
+      @dato_usuario = gets.chomp 
       
       puts "---------------------------------------------\n"
       puts "Tendrá que elegir entre las opciones que se le facilite en cada una
       de las preguntas. Cada preguntas puntuarán con 2puntos.\n"
-      aux = @examen
-      aux.each do |a|
-	puts "#{a.to_s}\n"
+      aux = @examen.lista_enlazada
+      while !aux.empty()
+	
+	ala = aux.pop()
+	puts "#{ala.to_s}"
+     
+      #aux.each do |a|
+	#puts "#{a.to_s}\n"
 	puts "¿Respuesta?: "
 	STDOUT.flush
 	respuesta = gets.chomp
-	if q.op_correcta(respuesta)
+	if a.op_correcta(respuesta)
 	 puts "Respuesta correcta"
 	  nota+=2
 	else
 	  puts "Respuesta incorrecta"
 	end
       end
-      
-      puts "Finalizado examen. Usuario: #{dato_usuario}, calculando nota: \n"
+    end
+    
+    def resultado
+      puts "Finalizado examen. Usuario: #{@dato_usuario}, calculando nota: \n"
       puts "Su nota es #{nota}\n"
       if nota>=5
 	puts "Ha aprobado. Felicidades"
