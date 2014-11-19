@@ -17,7 +17,7 @@ module Prct06
       elsif base==nil 
 	nuevo.siguiente = @cabeza
 	@cabeza.antes = nuevo
-	@cabeza= nuevo
+	#@cabeza= nuevo
 	#suponemos que nuevo anterio ya es nulo
       else
 	aux=@cabeza

@@ -87,12 +87,19 @@ describe Preguntas do
 		    it "Comparando preguntas" do
 		       #expect(@preg2==@preg1).to eq(false)
 		      expect(@preg2 > @preg1).to eq(true)
-		  
-	    
+		    end
+		  it "son el mismo objeto" do
+		  expect(@preg1.object_id == @preg2.object_id).to eq(false)
 		  end
+		  it "responde a metodos de clase" do
+		    class << Preguntas::Verdadero_Falso
+		      def hola
+		      "hola mundo"
+		      end
+		    end
+		    expect(Preguntas::Verdadero_Falso).to respond_to :hola 
 		  
-		  
-		  
+		  end
 		  
 		  
 		end
@@ -213,11 +220,14 @@ describe Prct06 do
 			  
 			  end
 			  
+			  
 			end
 
       end 	
     describe Prct06::Examen do
 	before :each do
+	  
+	  
 	end
 	
       
