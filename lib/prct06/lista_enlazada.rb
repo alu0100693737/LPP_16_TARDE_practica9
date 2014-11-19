@@ -13,42 +13,43 @@ module Prct06
     end
     def push_antes(base,nuevo)
       if @cabeza== nil 
-	cabeza=nuevo
+	@cabeza=nuevo
       elsif base==nil 
 	nuevo.siguiente = @cabeza
-	@cabeza.anterior = nuevo
+	@cabeza.antes = nuevo
 	#suponemos que nuevo anterio ya es nulo
       else
 	aux=@cabeza
 	while aux.valor =! base.valor 
 	 aux.siguiente = aux
 	end  
+	#aux2=@cabeza
 	 aux2=aux.antes
-	 aux.anterior=nuevo.siguiente
-	 aux2.siguiente=nuevo
-	 nuevo.siguiente=aux
-	 nuevo.anterior=aux2
+	 aux.antes=nuevo.siguiente
+	 aux2.siguiente = nuevo
+	 nuevo.siguiente = aux
+	 nuevo.antes = aux2
       end
     end 
-    def push_despues(base,nuevo)
-      if @cabeza== nil 
-	  @cabeza=nuevo
-      elsif base==nil 
-	nuevo.siguiente = @cabeza
-	cabeza.anterior = nuevo
-	#suponemos que nuevo anterio ya es nulo
-     else 
-	  aux=@cabeza
-	while aux.valor =! base.valor 
-	 aux.siguiente = aux
-	end  
-	 aux2=aux.siguiente
-	 aux.siguiente=nuevo
-	 nuevo.siguiente=aux2
-	 aux2.anterior=nuevo
-	 nuevo.anterior=aux
-      end
-    end 
+#     def push_despues(base,nuevo)
+#       if @cabeza== nil 
+# 	  @cabeza=nuevo
+#       elsif base==nil 
+# 	nuevo.siguiente = @cabeza
+# 	@cabeza.antes = nuevo
+# 	#suponemos que nuevo anterio ya es nulo
+#      else 
+# 	  aux=@cabeza
+# 	while aux.valor =! base.valor 
+# 	 aux.siguiente = aux
+# 	end  
+# 	 aux2=aux.siguiente
+# 	 aux.siguiente=nuevo
+# 	 nuevo.siguiente=aux2
+# 	 aux2.antes=nuevo
+# 	 nuevo.antes=aux
+#       end
+#     end 
     def push()
        
     end
@@ -62,10 +63,10 @@ module Prct06
 	 aux.siguiente = aux
 	end 
 	destruir =aux.valor
-	aux2=nodo.anterior
+	aux2=nodo.antes
 	aux3=nodo.siguiente
-	aux2.anterior =aux3
-	aux3.anterior=aux2
+	aux2.antes =aux3
+	aux3.antes=aux2
 	destruir.to_s
       else
 	puts 'No habia nada en la lista enlazada'
@@ -76,7 +77,7 @@ module Prct06
       if @cabeza !=null
 	aux=@cabeza
 	@cabeza=@cabeza.siguiente
-	@cabeza.anterior=nil
+	@cabeza.antes=nil
 	aux.siguiente=nil
 	aux.valor
       end

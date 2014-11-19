@@ -156,7 +156,7 @@ describe Prct06 do
  				@nodo5=nodo.new(@preg5, nil)
  						
   				@lista_enlazada.push_antes(nil, @nodo1)
- 				@lista_enlazada.push_despues(@nodo1, @nodo5)
+ 				@lista_enlazada.push_antes(nil, @nodo5)
 							
  			end
 			
@@ -196,10 +196,10 @@ describe Prct06 do
 			         expect(@lista_enlazada.class) ==  Prct06::Lista_enlazada       
 		  	  end
 			  it "se debe poder introducir un elemento en cualquier lugar "do
-			    @lista_enlazada.push_antes(@nodo1, @nodo3)
-			    @lista_enlazada.push_despues(@nodo5, @nodo4)
-			    @lista_enlazada.push_despues(@nodo3, @nodo2) 
-			    expect(@lista_enlazada.cabeza == @nodo3)
+			    @lista_enlazada.push_antes(nil, @nodo3)
+			    @lista_enlazada.push_antes(nil, @nodo4)
+			    @lista_enlazada.push_antes(nil, @nodo2) 
+			    expect(@lista_enlazada.cabeza == @nodo2)
 			  end
 			  it "se debe poder sacar un elemento en cualquier lugar "do
 			      #@lista_enlazada.pop(@nodo3)
@@ -209,7 +209,7 @@ describe Prct06 do
 			    @lista_enlazada.find{ |i| i }
 			  end
 			  it " se puede hacer un max preguntas" do
-			  expect(@lista_enlazada.max{}).to eq(nil)
+			  expect(@lista_enlazada.max{}).to eq(@preg1)
 			  
 			  end
 			  
