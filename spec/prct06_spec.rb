@@ -138,7 +138,7 @@ describe Prct06 do
  				      :op_correcta => "Ninguna de las anteriores",
  				      :Op_incorrecta => ['1', 'bob', 'HEY!'])
  				      
- 				@nodo3=nodo.new(@preg3, nil)
+ 				@nodo3=nodo.new(@preg3, nil,nil)
  				
  				@preg4=Preguntas::EleccionSimple.new(
  				      :pregunta => "salida de :
@@ -199,10 +199,10 @@ describe Prct06 do
 			    @lista_enlazada.push_antes(nil, @nodo3)
 			    @lista_enlazada.push_antes(nil, @nodo4)
 			    @lista_enlazada.push_antes(nil, @nodo2) 
-			    expect(@lista_enlazada.cabeza == @nodo2)
+			    expect(@lista_enlazada.cabeza.valor).to eq(@nodo1.valor)
 			  end
 			  it "se debe poder sacar un elemento en cualquier lugar "do
-			      #@lista_enlazada.pop(@nodo3)
+			      #@lista_enlazada.pop_principio()
 			      expect(@lista_enlazada.cabeza == @nodo3)
 			  end
 			  it "Se puede hacer un find" do
