@@ -15,8 +15,8 @@ module Prct06
       if @cabeza== nil 
 	cabeza=nuevo
       elsif base==nil 
-	nuevo.siguiente = cabeza
-	cabeza.anterior = nuevo
+	nuevo.siguiente = @cabeza
+	@cabeza.anterior = nuevo
 	#suponemos que nuevo anterio ya es nulo
       else
 	aux=@cabeza
@@ -32,9 +32,9 @@ module Prct06
     end 
     def push_despues(base,nuevo)
       if @cabeza== nil 
-	  cabeza=nuevo
+	  @cabeza=nuevo
       elsif base==nil 
-	nuevo.siguiente = cabeza
+	nuevo.siguiente = @cabeza
 	cabeza.anterior = nuevo
 	#suponemos que nuevo anterio ya es nulo
      else 
@@ -49,6 +49,12 @@ module Prct06
 	 nuevo.anterior=aux
       end
     end 
+    def push()
+       
+    end
+    def pop()
+    end
+    
     def pop(nodo)
       if @cabeza!=nil
 	aux=@cabeza
