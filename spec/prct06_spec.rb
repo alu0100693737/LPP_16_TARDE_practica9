@@ -226,7 +226,25 @@ describe Prct06 do
       end 	
     describe Prct06::Examen do
 	before :each do
+	  @examen = Prct06.new
 	  
+	  context "Pruebas de examen " do
+	    it "Pertenece a la clase lista_enlazada " do
+	      expect(@examen.lista_enlazada.class) == Prct06::Lista_enlazada
+	    end
+	    
+	  end
+	  
+	  context "Clase EleccionSimple" do
+		    it "Es de la clase SeleccionSimple" do
+		      expect(@examen.lista_enlazada.push(nil, @preg1) ==  nil    
+		    end
+		            
+	        
+		  #  it "Debe tener una respuesta correcta y varias incorrecta" do
+		   #   expect(@preg1.Op_verdadera) == 'Cierto'	       
+		    #  expect(@preg1.op_falsa) == 'Falso'      
+		    #end	
 	  
 	end
 	
