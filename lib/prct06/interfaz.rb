@@ -1,10 +1,10 @@
-module prct06
+module Prct06
 
   class Interfaz
     attr_accessor :examen, :nota, :dato_usuario
   
     def initialize()
-      @examen=Prct06::examen.new
+      @examen=Prct06::Examen.new
       @nota = 0
     end 
     
@@ -14,8 +14,8 @@ module prct06
       @dato_usuario = gets.chomp 
       
       puts "---------------------------------------------\n"
-      puts "Tendrá que elegir entre las opciones que se le facilite en cada una
-      de las preguntas. Cada preguntas puntuarán con 2puntos.\n"
+      puts "Tendra que elegir entre las opciones que se le facilite en cada una
+      de las preguntas. Cada preguntas puntuaran con 2puntos.\n"
       aux = @examen.lista_enlazada
       while !aux.empty()
 	
@@ -24,7 +24,7 @@ module prct06
      
       #aux.each do |a|
 	#puts "#{a.to_s}\n"
-	puts "¿Respuesta?: "
+	puts "respuesta?: "
 	STDOUT.flush
 	respuesta = gets.chomp
 	if a.op_correcta(respuesta)
@@ -42,7 +42,7 @@ module prct06
       if nota>=5
 	puts "Ha aprobado. Felicidades"
       else
-	puts "Ha suspendido. Intentelo el proximo año"
+	puts "Ha suspendido. Intentelo el proximo ano"
       end
       
     end

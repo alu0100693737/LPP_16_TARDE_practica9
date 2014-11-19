@@ -1,6 +1,6 @@
 module Prct06
   class Examen
-    attr_acccesor :lista_enlazada
+    attr_accessor :lista_enlazada
       nodo = Struct.new(:valor, :antes,:siguiente )
       def initialize
 	@lista_enlazada=Prct06::Lista_enlazada.new
