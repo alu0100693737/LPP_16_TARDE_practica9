@@ -244,7 +244,7 @@ describe Prct06 do
 	end 
 	context "Pruebas de examen " do
 	    it "Pertenece a la clase lista_enlazada " do
-	      expect(@examen.class.ancestors) == Kernel
+	      expect(@Interfaz.class.ancestors) == Kernel
 	    end
 	    it "Donde pertenece" do
 	      expect(@interfaz.class.superclass) == Object
