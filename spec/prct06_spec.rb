@@ -216,5 +216,12 @@ describe Prct06 do
 			end
 
       end 	
-
+    describe Prct06::Examen do
+	before :each do
+	end
+	
+      
+    end  
+      
+      
 end
