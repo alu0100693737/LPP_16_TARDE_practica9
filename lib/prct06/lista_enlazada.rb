@@ -11,21 +11,17 @@ module Prct06
    	@cabeza=a
 	@ultelem=b
     end
-    
     def push_antes(base,nuevo)
       if @cabeza== nil 
 	cabeza=nuevo
-      elsif @base==nil 
+      elsif base==nil 
 	nuevo.siguiente = cabeza
 	cabeza.anterior = nuevo
 	#suponemos que nuevo anterio ya es nulo
-      
       else
-	
 	aux=@cabeza
 	while aux.valor =! base.valor 
 	 aux.siguiente = aux
-		
 	end  
 	 aux2=aux.antes
 	 aux.anterior=nuevo.siguiente
@@ -34,17 +30,14 @@ module Prct06
 	 nuevo.anterior=aux2
       end
     end 
-     def push_despues(base,nuevo)
+    def push_despues(base,nuevo)
       if @cabeza== nil 
 	  cabeza=nuevo
-	  
-      
-      elsif @base==nil 
+      elsif base==nil 
 	nuevo.siguiente = cabeza
 	cabeza.anterior = nuevo
 	#suponemos que nuevo anterio ya es nulo
-      
-      else 
+     else 
 	  aux=@cabeza
 	while aux.valor =! base.valor 
 	 aux.siguiente = aux
@@ -56,10 +49,8 @@ module Prct06
 	 nuevo.anterior=aux
       end
     end 
-    
     def pop(nodo)
       if @cabeza!=nil
-	
 	aux=@cabeza
 	while aux.valor =! nodo.valor 
 	 aux.siguiente = aux
@@ -75,29 +66,33 @@ module Prct06
 	return nil
       end
     end
-    
     def pop_principio()
       if @cabeza !=null
 	aux=@cabeza
 	@cabeza=@cabeza.siguiente
 	@cabeza.anterior=nil
 	aux.siguiente=nil
-	aux.valor.
+	aux.valor
       end
     end  
     def to_tex
     end
-    
+    def empty
+      if @cabeza==nil
+	a=true
+      else 
+	a=false 
+      end
+      a
+    end
     def each
       aux =@cabeza
       while(aux!=nil)do
-	yield aux.valor.to_s
+	yield aux.valor
 	aux=aux.siguiente
       end
     end
     
   end
-    
 end
-
     
