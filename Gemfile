@@ -5,4 +5,5 @@ gemspec
 gem 'guard'
 gem 'guard-rspec'
 gem 'guard-bundler'
-gem 'pry-debugger', '~> 0.2.3'
+gem 'coveralls'
+#gem 'pry-debugger', '~> 0.2.3'
