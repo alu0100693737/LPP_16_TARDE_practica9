@@ -2,33 +2,36 @@ module Prct06
   class Lista_enlazada
     
     include Enumerable
-    attr_accessor :cabeza,:valor, :siguiente,:antes
+    attr_accessor :cabeza,:valor, :siguiente,:antes,:nodo1,:aux
     
     # create a Struct with :value and :next
-    nodo = Struct.new(:valor, :antes,:siguiente )
+    Nodo = Struct.new(:valor, :antes,:siguiente )
     def initialize()
    	@cabeza=nil
 	#@ultelem=b
     end
  
     def push(preg)
-       if @cabeza ==nil
-	 @nodo1=nodo.new(preg,nil,nil)
-	 @cabeza=nodo
+       if @cabeza == nil
+	 @nodo1=Nodo.new(preg,nil,nil)
+	 @cabeza=@nodo1
 	else
-	  @nodo1=nodo.new(preg,nil,nil)
+	  @nodo1=Nodo.new(preg,nil,nil)
 	  @cabeza.antes=@nodo1
 	  @nodo1.siguiente=@cabeza
 	  @cabeza=@nodo1
 	end  
     end
+    def to_tex
+    end
     def pop()
       if @cabeza== nil
 	puts "lista vacia"
       else
-	node=@cabeza
+	@nodo1=@cabeza.valor
 	@cabeza=@cabeza.siguiente
-	node.valor
+	@cabeza.antes=nil
+	@nodo1
       end
     end
     
@@ -41,11 +44,11 @@ module Prct06
       a
     end
     def each
-      aux =@cabeza
-      while(aux!=nil)do
-	yield aux.valor
-	aux=aux.siguiente
-      end
+      @aux =@cabeza
+      #while( @aux!=nil )do
+	yield @aux.valor
+	@aux=@aux.siguiente
+      #end
     end
     
   end
@@ -117,6 +120,6 @@ end
 # 	aux.valor
 #       end
 #     end  
-#     def to_tex
+#     
 
 

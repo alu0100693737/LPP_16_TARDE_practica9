@@ -10,18 +10,18 @@ module Preguntas
 	raise ArgumentError , 'Specify :pregunta , :op_correcta y :Op_incorrecta' unless @pregunta
     end
     
-     def to_html
-		opcion = @Op_incorrecta+[@op_correcta]
-		opcion = opcion.shuffle
-		s= ''
-		opcion.each do |opcion|
-
-			s += %Q{<input type="radio" value="#{opcion}" name = 0 > #{opcion}\n}
-		end	
-		
-		#html <<= -"HTML"
-		"#{@pregunta}<br/>\n#{s}\n"
-    end
+#      def to_html
+# 		opcion = @Op_incorrecta+[@op_correcta]
+# 		opcion = opcion.shuffle
+# 		s= ''
+# 		opcion.each do |opcion|
+# 
+# 			s += %Q{<input type="radio" value="#{opcion}" name = 0 > #{opcion}\n}
+# 		end	
+# 		
+# 		#html <<= -"HTML"
+# 		"#{@pregunta}<br/>\n#{s}\n"
+#     end
     
     def <=>(other)
       pregunta <=> other.pregunta
@@ -37,20 +37,25 @@ module Preguntas
     def initialize args
      
     
-      
+      super(args[:pregunta])
       @op_correcta = args[:op_correcta]
 	raise ArgumentError , 'Specify :pregunta , :op_correcta y :Op_incorrecta' unless @op_correcta
       @Op_incorrecta = args[:Op_incorrecta]
         raise ArgumentError , 'Specify :pregunta , :op_correcta y :Op_incorrecta' unless @Op_incorrecta
       
-	super(args[:pregunta])
+	
     end
     
 
-   def <=>(other)
-     super
-     op_correcta.size <=> other.op_correcta.size
-     #op_correcta==other.op_correcta
+   def <=> (other)
+   
+    if other.is_a? Verdadero_Falso
+	op_correcta <=> other.op_verdadera 
+	  else 
+	op_correcta <=> other.op_correcta || super
+    end
+    
+    
    end
    
       def to_s
@@ -72,24 +77,24 @@ module Preguntas
   
   class Verdadero_Falso < Preg
     
-    attr_accessor :Op_verdadera, :op_falsa
+    attr_accessor :op_verdadera, :op_falsa
         
     def initialize args
-      
-      @Op_verdadera = args[:Op_verdadera]
+      super(args[:pregunta])
+      @Op_verdadera = args[:op_verdadera]
 	raise ArgumentError , 'Specify :pregunta , :Op_verdadera y :op_falsa' unless @Op_verdadera
       @op_falsa = args[:op_falsa]
         raise ArgumentError , 'Specify :pregunta , :Op_verdadera y :op_falsa' unless @op_falsa
 
       
       
-      super(args[:pregunta])
+      
     end
     
    
     
       def to_s
-      opcion = @Op_incorrecta+[@op_correcta]
+      opcion = @op_falsa+[@op_verdadera]
       opcion = opcion.shuffle
       s= ''
       opcion.each do |opcion|
@@ -104,9 +109,13 @@ module Preguntas
    
 
 	def <=>(other)
-	  super
-	  op_falsa <=> other.op_falsa
+	  #super
+	  if other.is_a? EleccionSimple
+	   op_verdadera <=> other.op_correcta
+	  else 
+	  op_verdadera <=> other.op_verdadera
 	   #op_falsa == other.op_falsa
+	  end
 	end
     
   end
