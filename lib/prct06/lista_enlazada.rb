@@ -45,10 +45,10 @@ module Prct06
     end
     def each
       @aux =@cabeza
-      #while( @aux!=nil )do
+      while( @aux!=nil )do
 	yield @aux.valor
 	@aux=@aux.siguiente
-      #end
+      end
     end
     
   end

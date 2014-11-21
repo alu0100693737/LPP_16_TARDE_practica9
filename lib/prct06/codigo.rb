@@ -49,10 +49,10 @@ module Preguntas
 
    def <=> (other)
    
-    if other.is_a? Verdadero_Falso
-	op_correcta <=> other.op_verdadera 
+    if other.instance_of? Verdadero_Falso
+	op_correcta <=> other.op_verdadera && super
 	  else 
-	op_correcta <=> other.op_correcta || super
+	op_correcta <=> other.op_correcta && super
     end
     
     
@@ -110,10 +110,10 @@ module Preguntas
 
 	def <=>(other)
 	  #super
-	  if other.is_a? EleccionSimple
-	   op_verdadera <=> other.op_correcta
+	  if other.instance_of? EleccionSimple
+	   op_verdadera <=> other.op_correcta && super
 	  else 
-	  op_verdadera <=> other.op_verdadera
+	  op_verdadera <=> other.op_verdadera && super
 	   #op_falsa == other.op_falsa
 	  end
 	end
