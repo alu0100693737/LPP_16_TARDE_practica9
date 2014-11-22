@@ -86,7 +86,7 @@ describe Preguntas do
 		    end	
 		    it "Comparando preguntas" do
 		       #expect(@preg2==@preg1).to eq(false)
-		      expect(@preg2 > @preg1).to eq(false)
+		      expect(@preg2 > @preg1).to eq(true)
 		    end
 		  it "son el mismo objeto" do
 		  expect(@preg1.object_id == @preg2.object_id).to eq(false)
@@ -202,8 +202,8 @@ describe Prct06 do
 			  it "se debe poder sacar un elemento en cualquier lugar "do
 			      @lista_enlazada.pop()
 			      @lista_enlazada.pop()
-			       @lista_enlazada.pop()
-			        @lista_enlazada.pop()
+			      @lista_enlazada.pop()
+			      @lista_enlazada.pop()
 				 
 			      expect(@lista_enlazada.cabeza.valor).to eq(@preg1)
 			  end
