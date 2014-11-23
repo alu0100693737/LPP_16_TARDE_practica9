@@ -147,7 +147,7 @@ describe Prct06 do
  				      :Op_incorrecta => ['una constante', 'un objeto', 'ninguna de las anteriores'])
  								
  				@preg5=Preguntas::EleccionSimple.new(
- 				      :pregunta => "Es apropiado que una clase tablero herede de la clase juego? ",
+ 				      :pregunta => "es apropiado que una clase tablero herede de la clase juego? ",
  				      :op_correcta => "Falso", :Op_incorrecta=> ['Cierto'])
 				
  				
@@ -199,6 +199,12 @@ describe Prct06 do
 			    
 			    expect(@lista_enlazada.cabeza.valor).to eq(@preg5)
 			  end
+			  
+			  it " se puede hacer un max preguntas" do
+			  expect(@lista_enlazada.max) == (@preg5)
+			  
+			  end
+			  
 			  it "se debe poder sacar un elemento en cualquier lugar "do
 			      @lista_enlazada.pop()
 			      @lista_enlazada.pop()
@@ -210,10 +216,7 @@ describe Prct06 do
 			  it "Se puede hacer un find" do
 			    @lista_enlazada.find{ |i| i }
 			  end
-			  it " se puede hacer un max preguntas" do
-			  expect(@lista_enlazada.max{}).to eq(@preg5)
 			  
-			  end
 			  
 			  
 			end

@@ -94,15 +94,15 @@ module Preguntas
    
     
       def to_s
-      opcion = @op_falsa+[@op_verdadera]
-      opcion = opcion.shuffle
-      s= ''
-      opcion.each do |opcion|
+	opcion = @op_falsa+[@op_verdadera]
+	opcion = opcion.shuffle
+	s= ''
+	opcion.each do |opcion|
+	  
+	  s += %Q{-#{opcion}\n}
 	
-	s += %Q{-#{opcion}\n}
-	
-      end
-	 "#{@pregunta} \n #{s}\n"
+	end
+	"#{@pregunta} \n #{s}\n"
 
 	
       end#def to_s

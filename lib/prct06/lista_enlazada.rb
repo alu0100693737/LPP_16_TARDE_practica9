@@ -22,8 +22,10 @@ module Prct06
 	  @cabeza=@nodo1
 	end  
     end
+    
     def to_tex
     end
+    
     def pop()
       if @cabeza== nil
 	puts "lista vacia"
@@ -33,6 +35,7 @@ module Prct06
 	@cabeza.antes=nil
 	@nodo1.siguiente=nil
 	a=@nodo1.valor
+	puts "sacando valor"
       end
     end
     
@@ -44,15 +47,19 @@ module Prct06
       end
       a
     end
-    def each
-      aux =@cabeza
-      #while( aux!=nil )do
-	yield aux.valor
-	aux=aux.siguiente
-      #end
-    end
     
-  end
+    
+    def each
+      if(@cabeza!=nil)
+	  @aux =@cabeza
+	  while( @aux!=nil )
+	    yield @aux.valor
+	    @aux=@aux.siguiente
+	  end
+      end
+    
+    end
+end
 end
     
 #     def push_antes(base,nuevo)
