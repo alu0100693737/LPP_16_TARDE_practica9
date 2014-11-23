@@ -32,7 +32,7 @@ module Prct06
       else
 	@nodo1=@cabeza
 	@cabeza=@cabeza.siguiente
-	@cabeza.antes=nil
+	#@cabeza.antes=nil
 	@nodo1.siguiente=nil
 	a=@nodo1.valor
 	#puts "sacando valor"

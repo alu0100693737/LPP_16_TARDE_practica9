@@ -325,6 +325,9 @@ describe Prct06 do
 	      expect(@examen.class.superclass) == Object
 	    end  
 	    
+	    it "el reverse funcional sera" do
+	      expect(@examen.reverse(@lista))== ([@preg5, @preg4, @preg3, @preg2, @preg1])
+	    end
 	end
 	  
 	
