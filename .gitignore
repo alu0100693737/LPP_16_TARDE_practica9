@@ -1,7 +1,7 @@
 *~
 *.swp
 .c9*
-
+*swp
 *.gem
 *.rbc
 .bundle
