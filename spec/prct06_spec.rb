@@ -276,7 +276,7 @@ describe Prct06 do
 		@examen.lista_enlazada = @lista
 		
 		#rellenando por rellenar
-		@examen.opcion_marcada = ["@preg1.op_correcta","@preg2.op_correcta", '1', @preg4.op_correcta, 'Cierto']
+		@examen.opcion_marcada = ["Falso","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"]
 		
 		@exameninterfaz = Prct06::Interfaz.new(@examen.lista_enlazada)
 		
@@ -303,7 +303,7 @@ describe Prct06 do
 	      
 	      #nota =10
 	      it "La clase examen te dice si estas aprobado" do
-		@exameninterfaz.calcular_nota(["Falso","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"])
+		@exameninterfaz.calcular_nota(@examen.opcion_marcada)
 		expect(@exameninterfaz.mostrar_resultado)== (true)
 	      end
 	      it "La clase examen te dice si estas aprobado" do
@@ -313,7 +313,7 @@ describe Prct06 do
 	     
 	      #nota = 0
 	      it "La clase examen te dice si estas aprobado" do
-		@exameninterfaz.calcular_nota(@examen.opcion_marcada)
+		@exameninterfaz.calcular_nota(["2","3", "1", "@preg4.op_correcta", "Cierto"])
 		expect(@exameninterfaz.mostrar_resultado).to eq (false)
 	      end
   
