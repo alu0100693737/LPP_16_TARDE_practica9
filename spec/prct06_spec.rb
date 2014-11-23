@@ -224,6 +224,7 @@ describe Prct06 do
       end 	
 
       describe Prct06::Examen do
+	describe Prct06::Interfaz do
 	before :each do
 	  
 	        @lista = Prct06::Lista_enlazada.new
@@ -273,45 +274,66 @@ describe Prct06 do
 		@examen = Prct06::Examen.new
 		
 		@examen.lista_enlazada = @lista
-		@examen.opcion_marcada = [@preg1.op_correcta, @preg2.op_correcta, '1', @preg4.op_correcta, 'Cierto']
 		
-		@examengrafico = interfaz.new(@lista)
+		@examen.opcion_marcada.push(@preg1.op_correcta)
+		@examen.opcion_marcada.push(@preg2.op_correcta)
+		@examen.opcion_marcada.push('1')
+		@examen.opcion_marcada.push(@preg4.op_correcta)
+		@examen.opcion_marcada.push('Cierto')
 		
-	      end 
+		
+		@exameninterfaz = Interfaz.new(@lista)
+		
+	 end 
+	      
+	      #pruebas para la clase interfaz y examen
+	      
+	      it "Existe una clase examen" do
+		expect(@examen.class).to eq Examen
+	      end
+	      
+	      it "La clase examen tiene una lista de preguntas" do
+		expect(@examen.lista_enlazada.class).to eq Lista_enlazada
+	      end
+	      
+	      it "La clase interfaz tendra un atributo de la clase examen" do
+		expect(@exameninterfaz.lista.class).to eq Examen
+	      end
+		       
+	      it "Ademas, la clase grafico tendra dos contadores de tipo entero" do
+		expect(@exameninterfaz.correctas.is_a?Integer).to eq (true)
+		expect(@exameninterfaz.incorrectas.is_a?Integer).to eq (true)
+	      end
+	      
+	      it "La clase examen te dice si estas aprobado" do
+		@exameninterfaz.calcular_nota([@preg1.op_correcta, @preg2.op_correcta, '1', @preg4.op_correcta, 'Cierto'])
+		expect(@exameninterfaz.mostrar_resultado).to eq (true)
+	      end
 	      
 	      
-	      
-	      
-	  context "Pruebas de examen " do
+		      
+	                                     
+	  
+	
+	
+  
+	context "Pruebas de examen " do
 	    it "Pertenece a la clase lista_enlazada " do
 	      expect(@examen.class.ancestors) == Kernel
 	    end
-	    it "Contiene pregunta" do
-	      expect(@examen).to respond_to :pop
-	    end
-	  end
-	  
-    end
-  describe Prct06::Interfaz do
-      before :each do
-	  @interfaz = Prct06::Interfaz.new
-	end 
-	context "Pruebas de examen " do
-	    it "Pertenece a la clase lista_enlazada " do
-	      expect(@interfaz.class.ancestors) == Kernel
-	    end
 	    it "Donde pertenece" do
-	      expect(@interfaz.class.superclass) == Object
+	      expect(@examen.class.superclass) == Object
 	    end  
 	    it "Contiene dos metodos"do
-	       expect(@interfaz).to respond_to :mostrar
-	        expect(@interfaz).to respond_to :resultado
+	       expect(@interfazinterfaz).to respond_to :mostrar_resultado
+	        expect(@interfazinterfaz).to respond_to :calcular_nota
 	    end
 	  end
 	  
 	
 	
   end
+      end
   
     
       

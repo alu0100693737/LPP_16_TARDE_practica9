@@ -12,9 +12,9 @@ module Prct06
 	    while (aux != nil)
 		aux.valor.to_s
 		if (respuestas[cont] == aux.valor.respuesta)
-		    @correctas = @correctas+2
+		    @correctas = @correctas+1
 		else
-		    @incorrectas=@incorrectas+2
+		    @incorrectas=@incorrectas+1
 		end
 		aux= aux.siguiente
 		cont = cont +1
