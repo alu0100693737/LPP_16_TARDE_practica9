@@ -275,29 +275,24 @@ describe Prct06 do
 		
 		@examen.lista_enlazada = @lista
 		
-		@examen.opcion_marcada.push(@preg1.op_correcta)
-		@examen.opcion_marcada.push(@preg2.op_correcta)
-		@examen.opcion_marcada.push('1')
-		@examen.opcion_marcada.push(@preg4.op_correcta)
-		@examen.opcion_marcada.push('Cierto')
+		@examen.opcion_marcada = ["@preg1.op_correcta","@preg2.op_correcta", '1', @preg4.op_correcta, 'Cierto']
 		
-		
-		@exameninterfaz = Interfaz.new(@lista)
+		@exameninterfaz = Prct06::Interfaz.new(@lista)
 		
 	 end 
 	      
 	      #pruebas para la clase interfaz y examen
-	      
+	   context "Pruebas de examen e interfaz" do
 	      it "Existe una clase examen" do
-		expect(@examen.class).to eq Examen
+		expect(@examen.class).to eq Prct06::Examen
 	      end
 	      
 	      it "La clase examen tiene una lista de preguntas" do
-		expect(@examen.lista_enlazada.class).to eq Lista_enlazada
+		expect(@examen.lista_enlazada.class).to eq Prct06::Lista_enlazada
 	      end
 	      
 	      it "La clase interfaz tendra un atributo de la clase examen" do
-		expect(@exameninterfaz.lista.class).to eq Examen
+		expect(@exameninterfaz.lista.class) == Prct06::Lista_enlazada
 	      end
 		       
 	      it "Ademas, la clase grafico tendra dos contadores de tipo entero" do
@@ -306,18 +301,12 @@ describe Prct06 do
 	      end
 	      
 	      it "La clase examen te dice si estas aprobado" do
-		@exameninterfaz.calcular_nota([@preg1.op_correcta, @preg2.op_correcta, '1', @preg4.op_correcta, 'Cierto'])
+		@exameninterfaz.calcular_nota(["@preg1.op_correcta","@preg2.op_correcta", '1', "@preg4.op_correcta", 'Cierto'])
 		expect(@exameninterfaz.mostrar_resultado).to eq (true)
 	      end
 	      
-	      
-		      
-	                                     
-	  
-	
-	
   
-	context "Pruebas de examen " do
+	
 	    it "Pertenece a la clase lista_enlazada " do
 	      expect(@examen.class.ancestors) == Kernel
 	    end
@@ -325,10 +314,11 @@ describe Prct06 do
 	      expect(@examen.class.superclass) == Object
 	    end  
 	    it "Contiene dos metodos"do
-	       expect(@interfazinterfaz).to respond_to :mostrar_resultado
 	        expect(@interfazinterfaz).to respond_to :calcular_nota
+		expect(@interfazinterfaz).to respond_to :mostrar_resultado
+	        
 	    end
-	  end
+	end
 	  
 	
 	

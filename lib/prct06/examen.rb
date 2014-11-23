@@ -6,10 +6,12 @@ module Prct06
 	#nodo = Struct.new(:valor, :antes,:siguiente )
 	@lista_enlazada=nil
 	#@opcion_marcada = []
-	@opcion_marcada = Prct06::Lista_enlazada.new
+	@opcion_marcada = []
       end
 	
-	
+  end
+end
+
 	
 	
 	
@@ -53,9 +55,3 @@ module Prct06
 #       end
 # 	
       
-      
-      
-      
-      
-  end
-end
