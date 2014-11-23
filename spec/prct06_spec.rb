@@ -275,9 +275,10 @@ describe Prct06 do
 		
 		@examen.lista_enlazada = @lista
 		
+		#rellenando por rellenar
 		@examen.opcion_marcada = ["@preg1.op_correcta","@preg2.op_correcta", '1', @preg4.op_correcta, 'Cierto']
 		
-		@exameninterfaz = Prct06::Interfaz.new(@lista)
+		@exameninterfaz = Prct06::Interfaz.new(@examen.lista_enlazada)
 		
 	 end 
 	      
@@ -300,11 +301,21 @@ describe Prct06 do
 		expect(@exameninterfaz.incorrectas.is_a?Integer).to eq (true)
 	      end
 	      
+	      #nota =10
 	      it "La clase examen te dice si estas aprobado" do
-		@exameninterfaz.calcular_nota(["@preg1.op_correcta","@preg2.op_correcta", '1', "@preg4.op_correcta", 'Cierto'])
-		expect(@exameninterfaz.mostrar_resultado).to eq (true)
+		@exameninterfaz.calcular_nota(["Falso","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"])
+		expect(@exameninterfaz.mostrar_resultado)== (true)
 	      end
-	      
+	      it "La clase examen te dice si estas aprobado" do
+		@exameninterfaz.calcular_nota(["Verdadero","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"])
+		expect(@exameninterfaz.mostrar_resultado)== (true)
+	      end
+	     
+	      #nota = 0
+	      it "La clase examen te dice si estas aprobado" do
+		@exameninterfaz.calcular_nota(["2","3", "1", "@preg4.op_correcta", "Cierto"])
+		expect(@exameninterfaz.mostrar_resultado).to eq (false)
+	      end
   
 	
 	    it "Pertenece a la clase lista_enlazada " do
@@ -313,11 +324,7 @@ describe Prct06 do
 	    it "Donde pertenece" do
 	      expect(@examen.class.superclass) == Object
 	    end  
-	    it "Contiene dos metodos"do
-	        expect(@interfazinterfaz).to respond_to :calcular_nota
-		expect(@interfazinterfaz).to respond_to :mostrar_resultado
-	        
-	    end
+	    
 	end
 	  
 	

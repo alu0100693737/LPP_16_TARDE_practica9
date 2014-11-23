@@ -11,10 +11,13 @@ module Prct06
 	    cont = 0
 	    while (aux != nil)
 		aux.valor.to_s
-		if (respuestas[cont] == aux.valor.respuesta)
-		    @correctas = @correctas+1
+		#puts "#{aux.valor.to_s}"
+		#puts "#{respuestas[cont]}"
+		#puts "*************************"
+		if (respuestas[cont] == aux.valor.op_correcta)
+		    @correctas = @correctas+2
 		else
-		    @incorrectas=@incorrectas+1
+		    @incorrectas=@incorrectas+2
 		end
 		aux= aux.siguiente
 		cont = cont +1
@@ -27,7 +30,7 @@ module Prct06
 	end #calcular_nota
 	
 	def mostrar_resultado
-	  puts "Su nota es #{@correctas}\n"
+	  puts "\nSu nota es #{@correctas}\n"
 	  if (@correctas> @incorrectas)
 	      puts "Ha aprobado. Felicidades"
 	      return true

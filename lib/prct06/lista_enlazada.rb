@@ -28,14 +28,14 @@ module Prct06
     
     def pop()
       if @cabeza== nil
-	puts "lista vacia"
+	#puts "lista vacia"
       else
 	@nodo1=@cabeza
 	@cabeza=@cabeza.siguiente
 	@cabeza.antes=nil
 	@nodo1.siguiente=nil
 	a=@nodo1.valor
-	puts "sacando valor"
+	#puts "sacando valor"
       end
     end
     
