@@ -26,12 +26,12 @@ describe Preguntas do
 			    def say_hi \n HEY!end end \n
 			    p[1,, bob].say_hi", 
  			    :op_correcta => "Ninguna de las anteriores",
- 			    :Op_incorrecta => ['1', 'bob', 'HEY!'])
+ 			    :op_incorrecta => ['1', 'bob', 'HEY!'])
 		    @preg2=Preguntas::EleccionSimple.new(
 			  :pregunta => "salida de :
  			  class Objeto \n
  			  end", :op_correcta => "Una instancia de la clase Class",
- 			  :Op_incorrecta => ['una constante', 'un objeto', 'ninguna de las anteriores'])
+ 			  :op_incorrecta => ['una constante', 'un objeto', 'ninguna de las anteriores'])
 		  end
 		  context "Clase EleccionSimple" do
 		    it "Es de la clase SeleccionSimple" do
@@ -40,7 +40,7 @@ describe Preguntas do
 	        
 		    it "Debe tener una respuesta correcta y varias incorrecta" do
 		      expect(@preg1.op_correcta) == 'Ninguna de las anteriores'	       
-		      expect(@preg1.Op_incorrecta) == ['1', 'bob', 'HEY!']       
+		      expect(@preg1.op_incorrecta) == ['1', 'bob', 'HEY!']       
 		    end	
 	    
 		    it "tiene que tener un metodo to_s" do
@@ -119,7 +119,7 @@ describe Prct06 do
  					:pregunta => "salida de : 
  					class Xyz \n def pots\n
  					@nice\n end\nend\n",:op_correcta => "nil",
- 				 	:Op_incorrecta => ['#<Xyz:0x00000002bf0ed0>','0', "ninguna de las anteriores" ])
+ 				 	:op_incorrecta => ['#<Xyz:0x00000002bf0ed0>','0', "ninguna de las anteriores" ])
   							
  				@preg2=Preguntas::EleccionSimple.new(
  				      :pregunta => "salida de :
@@ -127,7 +127,7 @@ describe Prct06 do
  				      [1, 2, 3] => Object.new(), \n
  				      Hash.new => :toto
  				      }", :op_correcta => "Cierto", 
- 				      :Op_incorrecta => ['Falso'] )
+ 				      :op_incorrecta => ['Falso'] )
  				 								
  				@preg3=Preguntas::EleccionSimple.new(
  				      :pregunta => "salida de :
@@ -138,17 +138,17 @@ describe Prct06 do
  				      end \n
  				      p[1,, bob].say_hi", 
  				      :op_correcta => "Ninguna de las anteriores",
- 				      :Op_incorrecta => ['1', 'bob', 'HEY!'])
+ 				      :op_incorrecta => ['1', 'bob', 'HEY!'])
  								
  				@preg4=Preguntas::EleccionSimple.new(
  				      :pregunta => "salida de :
  				      class Objeto \n
  				      end", :op_correcta => "Una instancia de la clase Class",
- 				      :Op_incorrecta => ['una constante', 'un objeto', 'ninguna de las anteriores'])
+ 				      :op_incorrecta => ['una constante', 'un objeto', 'ninguna de las anteriores'])
  								
  				@preg5=Preguntas::EleccionSimple.new(
  				      :pregunta => "es apropiado que una clase tablero herede de la clase juego? ",
- 				      :op_correcta => "Falso", :Op_incorrecta=> ['Cierto'])
+ 				      :op_correcta => "Falso", :op_incorrecta=> ['Cierto'])
 				
  				
  						
@@ -222,10 +222,66 @@ describe Prct06 do
 			end
 
       end 	
-    describe Prct06::Examen do
+
+      describe Prct06::Examen do
 	before :each do
-	  @examen = Prct06::Examen.new
-	end  
+	  
+	        @lista = Prct06::Lista_enlazada.new
+	        @preg1=Preguntas::EleccionSimple.new(
+					      :pregunta => "salida de : 
+					      class Xyz \n def pots\n
+					      @nice\n end\nend\n",:op_correcta => "nil",
+					      :op_incorrecta => ['#<Xyz:0x00000002bf0ed0>','0', "ninguna de las anteriores" ])
+							      
+	        @preg2=Preguntas::EleccionSimple.new(
+					    :pregunta => "salida de :
+					    hash_raro ={ \n
+					    [1, 2, 3] => Object.new(), \n
+					    Hash.new => :toto
+					    }", :op_correcta => "Cierto", 
+					    :op_incorrecta => ['Falso'] )
+												      
+	        @preg3=Preguntas::EleccionSimple.new(
+					    :pregunta => "salida de :
+					    class Array \n 
+					    def say_hi \n
+					    HEY! 
+					    end
+					    end \n
+					    p[1,, bob].say_hi", 
+					    :op_correcta => "Ninguna de las anteriores",
+					    :op_incorrecta => ['1', 'bob', 'HEY!'])
+								      
+	        @preg4=Preguntas::EleccionSimple.new(
+					    :pregunta => "salida de :
+					    class Objeto \n
+					    end", :op_correcta => "Una instancia de la clase Class",
+					    :op_incorrecta => ['una constante', 'un objeto', 'ninguna de las anteriores'])
+								      
+		@preg5=Preguntas::EleccionSimple.new(
+					    :pregunta => "es apropiado que una clase tablero herede de la clase juego? ",
+					    :op_correcta => "Falso", :op_incorrecta=> ['Cierto'])
+				      
+				      
+						      
+				      @lista.push(@preg1)
+				      @lista.push(@preg2)
+				      @lista.push(@preg3)
+				      @lista.push(@preg4)
+				      @lista.push(@preg5) 
+		
+		@examen = Prct06::Examen.new
+		
+		@examen.lista_enlazada = @lista
+		@examen.opcion_marcada = [@preg1.op_correcta, @preg2.op_correcta, '1', @preg4.op_correcta, 'Cierto']
+		
+		@examengrafico = interfaz.new(@lista)
+		
+	      end 
+	      
+	      
+	      
+	      
 	  context "Pruebas de examen " do
 	    it "Pertenece a la clase lista_enlazada " do
 	      expect(@examen.class.ancestors) == Kernel
@@ -242,7 +298,7 @@ describe Prct06 do
 	end 
 	context "Pruebas de examen " do
 	    it "Pertenece a la clase lista_enlazada " do
-	      expect(@Interfaz.class.ancestors) == Kernel
+	      expect(@interfaz.class.ancestors) == Kernel
 	    end
 	    it "Donde pertenece" do
 	      expect(@interfaz.class.superclass) == Object

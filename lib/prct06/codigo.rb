@@ -7,11 +7,11 @@ module Preguntas
   
     def initialize args
       @pregunta = args
-	raise ArgumentError , 'Specify :pregunta , :op_correcta y :Op_incorrecta' unless @pregunta
+	raise ArgumentError , 'Specify :pregunta , :op_correcta y :op_incorrecta' unless @pregunta
     end
     
 #      def to_html
-# 		opcion = @Op_incorrecta+[@op_correcta]
+# 		opcion = @op_incorrecta+[@op_correcta]
 # 		opcion = opcion.shuffle
 # 		s= ''
 # 		opcion.each do |opcion|
@@ -31,7 +31,7 @@ module Preguntas
   end 
 
     class EleccionSimple <Preg 
-    attr_accessor :op_correcta, :Op_incorrecta
+    attr_accessor :op_correcta, :op_incorrecta
     
       
     def initialize args
@@ -39,9 +39,9 @@ module Preguntas
     
       super(args[:pregunta])
       @op_correcta = args[:op_correcta]
-	raise ArgumentError , 'Specify :pregunta , :op_correcta y :Op_incorrecta' unless @op_correcta
-      @Op_incorrecta = args[:Op_incorrecta]
-        raise ArgumentError , 'Specify :pregunta , :op_correcta y :Op_incorrecta' unless @Op_incorrecta
+	raise ArgumentError , 'Specify :pregunta , :op_correcta y :op_incorrecta' unless @op_correcta
+      @op_incorrecta = args[:op_incorrecta]
+        raise ArgumentError , 'Specify :pregunta , :op_correcta y :op_incorrecta' unless @op_incorrecta
       
 	
     end
@@ -59,7 +59,7 @@ module Preguntas
    end
    
       def to_s
-      opcion = @Op_incorrecta+[@op_correcta]
+      opcion = @op_incorrecta+[@op_correcta]
       opcion = opcion.shuffle
       s= ''
       opcion.each do |opcion|
