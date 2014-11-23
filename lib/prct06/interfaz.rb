@@ -2,6 +2,7 @@ module Prct06
     class Interfaz
 	attr_accessor :lista, :correctas, :incorrectas
 	def initialize(lista)
+	  #examen
 	  @lista=lista
 	  @correctas=0
 	  @incorrectas=0

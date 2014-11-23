@@ -3,6 +3,7 @@ module Prct06
     attr_accessor :lista_enlazada, :opcion_marcada
       
       def initialize
+	#lista en initialize
 	#nodo = Struct.new(:valor, :antes,:siguiente )
 	@lista_enlazada=nil
 	#@opcion_marcada = []
