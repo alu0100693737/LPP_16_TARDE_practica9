@@ -313,7 +313,7 @@ describe Prct06 do
 	     
 	      #nota = 0
 	      it "La clase examen te dice si estas aprobado" do
-		@exameninterfaz.calcular_nota(["2","3", "1", "@preg4.op_correcta", "Cierto"])
+		@exameninterfaz.calcular_nota(@examen.opcion_marcada)
 		expect(@exameninterfaz.mostrar_resultado).to eq (false)
 	      end
   
