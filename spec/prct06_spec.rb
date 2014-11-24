@@ -271,14 +271,15 @@ describe Prct06 do
 				      @lista.push(@preg4)
 				      @lista.push(@preg5) 
 		
-		@examen = Prct06::Examen.new
+		@examen = Prct06::Examen.new(@lista)
 		
-		@examen.lista_enlazada = @lista
+		#@examen.lista_enlazada = @lista
 		
 		#rellenando por rellenar
 		@examen.opcion_marcada = ["Falso","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"]
 		
-		@exameninterfaz = Prct06::Interfaz.new(@examen.lista_enlazada)
+		@exameninterfaz = Prct06::Interfaz.new(@lista)
+		@exameninterfaz.examen.opcion_marcada = ["Falso","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"]
 		
 	 end 
 	      
@@ -293,7 +294,11 @@ describe Prct06 do
 	      end
 	      
 	      it "La clase interfaz tendra un atributo de la clase examen" do
-		expect(@exameninterfaz.lista.class) == Prct06::Lista_enlazada
+		expect(@exameninterfaz.examen.class) == Prct06::Examen
+	      end
+	      
+	      it "Y esa clase examen tiene un atributo de tipo Lista Enlazada" do
+		expect(@exameninterfaz.examen.lista_enlazada.class) == Prct06::Lista_enlazada
 	      end
 		       
 	      it "Ademas, la clase grafico tendra dos contadores de tipo entero" do
@@ -303,17 +308,21 @@ describe Prct06 do
 	      
 	      #nota =10
 	      it "La clase examen te dice si estas aprobado" do
-		@exameninterfaz.calcular_nota(@examen.opcion_marcada)
+		@exameninterfaz.calcular_nota(@exameninterfaz.examen.opcion_marcada)
 		expect(@exameninterfaz.mostrar_resultado)== (true)
 	      end
+	      
+	      #nota = 8
 	      it "La clase examen te dice si estas aprobado" do
-		@exameninterfaz.calcular_nota(["Verdadero","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"])
+		@exameninterfaz.examen.opcion_marcada = ["Verdadero","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"]
+		@exameninterfaz.calcular_nota(@exameninterfaz.examen.opcion_marcada)
 		expect(@exameninterfaz.mostrar_resultado)== (true)
 	      end
 	     
 	      #nota = 0
 	      it "La clase examen te dice si estas aprobado" do
-		@exameninterfaz.calcular_nota(["2","3", "1", "@preg4.op_correcta", "Cierto"])
+		@exameninterfaz.examen.opcion_marcada = ["2","3", "1", "@preg4.op_correcta", "Cierto"]
+		@exameninterfaz.calcular_nota(@exameninterfaz.examen.opcion_marcada)
 		expect(@exameninterfaz.mostrar_resultado).to eq (false)
 	      end
   

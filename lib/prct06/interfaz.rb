@@ -1,14 +1,15 @@
 module Prct06
     class Interfaz
-	attr_accessor :lista, :correctas, :incorrectas
+	attr_accessor :examen, :lista, :correctas, :incorrectas
 	def initialize(lista)
-	  #examen
-	  @lista=lista
+	
+	  @examen = Prct06::Examen.new(lista)
 	  @correctas=0
 	  @incorrectas=0
 	end
+	
 	def calcular_nota(respuestas)
-	    aux = @lista.cabeza
+	    aux = examen.lista_enlazada.cabeza
 	    cont = 0
 	    while (aux != nil)
 		aux.valor.to_s

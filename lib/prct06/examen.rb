@@ -2,10 +2,10 @@ module Prct06
   class Examen
     attr_accessor :lista_enlazada, :opcion_marcada
       
-      def initialize
+      def initialize(lista)
 	#lista en initialize
 	#nodo = Struct.new(:valor, :antes,:siguiente )
-	@lista_enlazada=nil
+	@lista_enlazada=lista
 	#@opcion_marcada = []
 	@opcion_marcada = []
       end
