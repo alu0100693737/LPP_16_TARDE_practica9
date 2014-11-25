@@ -51,7 +51,8 @@ module Prct06
      def reverse
 	@lista_reverse = Prct06::Lista_enlazada.new
 	self.each_with_index do |n|
-	  @lista_reverse.push(self.pop)
+	   yield @lista_reverse.push(n)
+	  
 	end
 	return @lista_reverse
      end

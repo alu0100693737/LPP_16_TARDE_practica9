@@ -250,6 +250,7 @@ describe Prct06 do
 				      @lista.push(@preg4)
 				      @lista.push(@preg5) 
 		
+				    
 		@listaprueba = Prct06::Lista_enlazada.new
 		@listaprueba.push(@preg5)
 		@listaprueba.push(@preg4)
@@ -291,13 +292,18 @@ describe Prct06 do
 	      end
 	      
 	       it "el reverse funcional sera" do
-	      expect(@exameninterfaz.examen.lista_enlazada.reverse).not_to eq (@exameninterfaz.examen.lista_enlazada )
+	      #expect(@exameninterfaz.examen.lista_enlazada.reverse).not_to eq (@exameninterfaz.examen.lista_enlazada )
 	      end
 	      
 	      it "ademas, sera justo el reverse" do
 		@a = Prct06::Lista_enlazada.new
-		@a = @exameninterfaz.examen.lista_enlazada.reverse
-		expect(@listaprueba).to eq (@a)
+		@a = @exameninterfaz.examen.lista_enlazada.reverse{}
+		
+ 		expect(@listaprueba.pop).to eq (@a.pop)
+ 		expect(@listaprueba.pop).to eq (@a.pop)
+ 		expect(@listaprueba.pop).to eq (@a.pop)
+ 		expect(@listaprueba.pop).to eq (@a.pop)
+ 		expect(@listaprueba.pop).to eq (@a.pop)
 	      end
 		  
 	      it "La clase interfaz tendra un atributo de la clase examen" do
