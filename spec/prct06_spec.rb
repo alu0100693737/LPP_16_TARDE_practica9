@@ -159,28 +159,7 @@ describe Prct06 do
 				@lista_enlazada.push(@preg5) 
 							
  			end
-			
-# 			context "cuando se construye una pregunta" do
-# 				it " tiene que tener un texto y algunas opciones" do
-# 					expect(@preg4.pregunta).to match("salida de ")
-# 					expect(@preg4.op_correcta)== 'Una instancia de la clase Class'
-# 					expect(@preg4.Op_incorrecta)==['una constante', 'un objeto', 'ninguna de las anteriores']
-# 				end
-# 				it "tiene que tener 3 componentes" do
-# 					expect{Preguntas::EleccionSimple.new(
-# 						 :pregunta => '5*8=?' )}.to raise_error(ArgumentError)
-# 				end
-# # 				it " Además, se tendra una respuesta correcta única " do
-# # 					expect(@preg5.op_correcta) == 'Falso'
-# # 				end
-# 				it " tiene que tener un texto y algunas opciones" do
-# 					expect(@preg5.pregunta).to match("(\w|\s)*clase tablero ")
-# 					expect(@preg5.op_correcta)== 'Falso'
-# 					expect(@preg5.Op_incorrecta)==['Cierto']
-# 				end
-# 				
-#	end
-			
+				
 			
 			
  			context "Comprobacion de existencia de metodos" do
@@ -271,6 +250,14 @@ describe Prct06 do
 				      @lista.push(@preg4)
 				      @lista.push(@preg5) 
 		
+		@listaprueba = Prct06::Lista_enlazada.new
+		@listaprueba.push(@preg5)
+		@listaprueba.push(@preg4)
+		@listaprueba.push(@preg3)
+		@listaprueba.push(@preg2)
+		@listaprueba.push(@preg1)
+		
+		
 		@examen = Prct06::Examen.new(@lista)
 		
 		#@examen.lista_enlazada = @lista
@@ -303,6 +290,16 @@ describe Prct06 do
 		expect(@examen.opcion_correcta).to eq ["Falso","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"]
 	      end
 	      
+	       it "el reverse funcional sera" do
+	      expect(@exameninterfaz.examen.lista_enlazada.reverse).not_to eq (@exameninterfaz.examen.lista_enlazada )
+	      end
+	      
+	      it "ademas, sera justo el reverse" do
+		@a = Prct06::Lista_enlazada.new
+		@a = @exameninterfaz.examen.lista_enlazada.reverse
+		expect(@listaprueba).to eq (@a)
+	      end
+		  
 	      it "La clase interfaz tendra un atributo de la clase examen" do
 		expect(@exameninterfaz.examen.class) == Prct06::Examen
 	      end
@@ -347,9 +344,7 @@ describe Prct06 do
 	      expect(@examen.class.superclass) == Object
 	    end  
 	    
-	    it "el reverse funcional sera" do
-	      expect(@examen.reverse(@lista))== ([@preg5, @preg4, @preg3, @preg2, @preg1])
-	    end
+	   
 	end
 	  
 	

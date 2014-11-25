@@ -2,7 +2,7 @@ module Prct06
   class Lista_enlazada
     
     include Enumerable
-    attr_accessor :cabeza,:valor, :siguiente,:antes,:nodo1
+    attr_accessor :cabeza,:valor, :siguiente,:antes,:nodo1, :lista_reverse
     
     # create a Struct with :value and :next
     Nodo = Struct.new(:valor, :antes,:siguiente )
@@ -48,7 +48,15 @@ module Prct06
       a
     end
     
-    
+     def reverse
+	@lista_reverse = Prct06::Lista_enlazada.new
+	self.each_with_index do |n|
+	  @lista_reverse.push(self.pop)
+	end
+	return @lista_reverse
+     end
+      
+      
     def each
       if(@cabeza!=nil)
 	  @aux =@cabeza

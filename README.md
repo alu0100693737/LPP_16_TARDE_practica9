@@ -17,12 +17,9 @@ que ha obtenido el usuario.
 
 NOTA:
 
-Se guardan los resultados del usuario en el examen. Consideramos examen por usuario.
-De esta forma, si queremos cambiar las opciones marcadas, se tendra que hacer de la siguiente forma:
+Se guardan los resultados del usuario en interfaz. En examen hay una copia de los resultados correctos. De esta manera consideramos un unico examen para 
+distintos usuarios.
 
-@exameninterfaz.examen.opcion_marcada = ["Verdadero","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"]
-@exameninterfaz.calcular_nota(@exameninterfaz.examen.opcion_marcada)
-expect(@exameninterfaz.mostrar_resultado)== (true)
 
 
 ## Contributing

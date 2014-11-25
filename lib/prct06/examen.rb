@@ -9,15 +9,7 @@ module Prct06
 	#@opcion_marcada = []
 	@opcion_correcta = []
       end
-	
-      def reverse(lista)
-	@lista_reverse = Prct06::Lista_enlazada.new
-	#@lista_reverse = 
-	for i in [1,2,3,4,5]
-	  @lista_reverse.push(lista.pop())
-	end
-	return @lista_reverse
-      end
+
 end
 end
 

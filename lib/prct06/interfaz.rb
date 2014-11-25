@@ -12,7 +12,7 @@ module Prct06
 	end
 	
 	def calcular_nota(respuestas, usuario)
-	    aux = examen.lista_enlazada.cabeza
+	    aux = @examen.lista_enlazada.cabeza
 	    cont = 0
 	    @resp_usuario = []
 	    @resp_usuario = respuestas[usuario]
