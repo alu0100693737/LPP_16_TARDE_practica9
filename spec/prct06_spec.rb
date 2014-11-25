@@ -276,10 +276,16 @@ describe Prct06 do
 		#@examen.lista_enlazada = @lista
 		
 		#rellenando por rellenar
-		@examen.opcion_marcada = ["Falso","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"]
+		@examen.opcion_correcta = ["Falso","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"]
 		
 		@exameninterfaz = Prct06::Interfaz.new(@lista)
-		@exameninterfaz.examen.opcion_marcada = ["Falso","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"]
+		
+		#opcion para sacar un 10
+		@exameninterfaz.examen.opcion_correcta = ["Falso","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"]
+		
+		@exameninterfaz.opcion_marcadas_usuario[1] = ["Falso","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"]
+		@exameninterfaz.opcion_marcadas_usuario[2]= ["Verdadero","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"]
+		@exameninterfaz.opcion_marcadas_usuario[3]= ["2","3", "1", "@preg4.op_correcta", "Cierto"]
 		
 	 end 
 	      
@@ -291,6 +297,10 @@ describe Prct06 do
 	      
 	      it "La clase examen tiene una lista de preguntas" do
 		expect(@examen.lista_enlazada.class).to eq Prct06::Lista_enlazada
+	      end
+		                                          
+	      it "La clase examen tiene ademas las respuestas validas del examen" do
+		expect(@examen.opcion_correcta).to eq ["Falso","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"]
 	      end
 	      
 	      it "La clase interfaz tendra un atributo de la clase examen" do
@@ -306,23 +316,26 @@ describe Prct06 do
 		expect(@exameninterfaz.incorrectas.is_a?Integer).to eq (true)
 	      end
 	      
+	      it "La clase grafico tendra datos para diferentes usuarios" do
+		expect(@exameninterfaz.opcion_marcadas_usuario[1]).not_to eql(@exameninterfaz.opcion_marcadas_usuario[2])
+	      end
 	      #nota =10
 	      it "La clase examen te dice si estas aprobado" do
-		@exameninterfaz.calcular_nota(@exameninterfaz.examen.opcion_marcada)
+		@exameninterfaz.calcular_nota(@exameninterfaz.opcion_marcadas_usuario, 1)
 		expect(@exameninterfaz.mostrar_resultado)== (true)
 	      end
 	      
 	      #nota = 8
 	      it "La clase examen te dice si estas aprobado" do
-		@exameninterfaz.examen.opcion_marcada = ["Verdadero","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"]
-		@exameninterfaz.calcular_nota(@exameninterfaz.examen.opcion_marcada)
+		#@exameninterfaz.opcion_marcadas_usuario = ["Verdadero","Una instancia de la clase Class", "Ninguna de las anteriores", "Cierto", "nil"]
+		@exameninterfaz.calcular_nota(@exameninterfaz.opcion_marcadas_usuario, 2)
 		expect(@exameninterfaz.mostrar_resultado)== (true)
 	      end
 	     
 	      #nota = 0
-	      it "La clase examen te dice si estas aprobado" do
-		@exameninterfaz.examen.opcion_marcada = ["2","3", "1", "@preg4.op_correcta", "Cierto"]
-		@exameninterfaz.calcular_nota(@exameninterfaz.examen.opcion_marcada)
+	      it "La clase examen te dice si estas suspendido" do
+		#@exameninterfaz.opcion_marcadas_usuario = ["2","3", "1", "@preg4.op_correcta", "Cierto"]
+		@exameninterfaz.calcular_nota(@exameninterfaz.opcion_marcadas_usuario, 3)
 		expect(@exameninterfaz.mostrar_resultado).to eq (false)
 	      end
   
