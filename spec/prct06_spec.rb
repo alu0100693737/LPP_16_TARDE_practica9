@@ -292,7 +292,7 @@ describe Prct06 do
 	      end
 	      
 	       it "el reverse funcional sera" do
-	      #expect(@exameninterfaz.examen.lista_enlazada.reverse).not_to eq (@exameninterfaz.examen.lista_enlazada )
+	      expect(@exameninterfaz.examen.lista_enlazada.reverse{}).not_to eq (@exameninterfaz.examen.lista_enlazada )
 	      end
 	      
 	      it "ademas, sera justo el reverse" do
